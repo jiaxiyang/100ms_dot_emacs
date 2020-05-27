@@ -19,6 +19,9 @@
  'add-hook
  (progn
    (setq package-enable-at-startup nil)
+   (setq make-backup-files nil)
+   (setq split-width-threshold 0)
+   (setq split-height-threshold nil)
    (setq inhibit-default-init t)
    ;; (setq initial-buffer-choice nil)
    (setq inhibit-startup-echo-area-message (user-login-name))
@@ -142,7 +145,7 @@
          ("M-y" . ivy-next-line)))
 
 (use-package swiper
-  :bind (;; ("C-s" . swiper-isearch)
+  :bind ( ("C-s" . swiper-isearch)
          ;; ("C-r" . swiper-isearch)
          ("C-c C-r" . ivy-resume)
          ("M-x" . counsel-M-x)
