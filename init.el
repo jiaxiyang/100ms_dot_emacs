@@ -513,10 +513,6 @@
   (gcmh-mode 1))
 
 ;; ********* jiaxiyang's config ********
-;; use M-1 to slect num 1 window
-(use-package window-numbering
-  :ensure t
-  :config (window-numbering-mode 1))
 
 ;; END
 (no-load-path-done)
