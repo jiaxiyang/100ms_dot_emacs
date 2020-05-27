@@ -345,7 +345,7 @@
   :straight
   (leader-key-mode :type git
                    :host github
-                   :repo "wcy123/leader-key-mode")
+                   :repo "jiaxiyang/leader-key-mode")
   :functions (leader-key-mode)
   :defer 1
   :config
