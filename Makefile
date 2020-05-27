@@ -1,7 +1,7 @@
 EMACS ?= emacs
 for_compile := init.el
 VERSION := $(shell git describe --always --tags HEAD)
-TARBALL := out/100ms_dot_emacs.emacs.d.$(VERSION).tar.gz
+TARBALL := out/jia_100ms_dot_emacs.emacs.d.$(VERSION).tar.gz
 
 ## ---------------------------------------------------
 all: $(SRC_TARBALL) $(SRC_ZIPBALL)  $(TARBALL)
@@ -11,7 +11,7 @@ $(TARBALL): $(HOME)/.emacs.d/init.elc
 		--exclude=.emacs.d/straight/repos \
 		.emacs.d/.autoloads.el \
 		.emacs.d/.autoloads.elc \
-        .emacs.d/init.elc .emacs.d/straight) >$@; ln -sf `basename $@` out/100ms_dot_emacs.emacs.d.latest.tar.gz
+        .emacs.d/init.elc .emacs.d/straight) >$@; ln -sf `basename $@` out/jia_100ms_dot_emacs.emacs.d.latest.tar.gz
 
 $(HOME)/.emacs.d/init.elc:  init.elc
 	cp -v $< $@
