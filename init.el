@@ -6,6 +6,9 @@
 ;; threshold to temporarily prevent it from running, then reset it later by
 ;; enabling `gcmh-mode'. Not resetting it will cause stuttering/freezes.
 (setq gc-cons-threshold most-positive-fixnum)
+(setq make-backup-files nil)
+(setq split-width-threshold 0)
+(setq split-height-threshold nil)
 
 (eval-when-compile
   ;; no-load-path.el must be found in `load-path`. Fortunately this is
@@ -19,9 +22,6 @@
  'add-hook
  (progn
    (setq package-enable-at-startup nil)
-   (setq make-backup-files nil)
-   (setq split-width-threshold 0)
-   (setq split-height-threshold nil)
    (setq inhibit-default-init t)
    ;; (setq initial-buffer-choice nil)
    (setq inhibit-startup-echo-area-message (user-login-name))
