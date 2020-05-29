@@ -513,6 +513,6 @@
   (gcmh-mode 1))
 
 ;; ********* jiaxiyang's config ********
-
+(use-package evil)
 ;; END
 (no-load-path-done)
