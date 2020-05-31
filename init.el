@@ -249,8 +249,9 @@
   :config
   (add-to-list 'company-backends 'company-c-headers))
 
+;; 需要project.el 0.3.0
 (use-package eglot
-  :defines (eglot-mode-map eglot-server-programs)
+  :defines (eglot-mode-map eglot-server-programs) 
   :hook (((c-mode c++-mode) . eglot-ensure))
   :bind (:map eglot-mode-map
               ("C-c h" . eglot-help-at-point)
