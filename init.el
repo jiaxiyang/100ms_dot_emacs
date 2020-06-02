@@ -517,6 +517,9 @@
   (gcmh-mode 1))
 
 ;; ********* jiaxiyang's config ********
+(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (use-package evil)
+(use-package smartparens-config
+  :ensure smartparens)
 ;; END
 (no-load-path-done)
