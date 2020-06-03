@@ -236,7 +236,7 @@
               (("C-n" . company-select-next)
                ("C-p" . company-select-previous)))
   :config
-  ;;(setq company-idle-delay              nil) ;;关闭自动提示
+  (setq company-idle-delay              0) ;;关闭自动提示
   (setq company-minimum-prefix-length   2)
   (setq company-show-numbers            t)
   (setq company-tooltip-limit           20)
@@ -519,7 +519,8 @@
 ;; ********* jiaxiyang's config ********
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 (use-package evil)
-(use-package smartparens-config
-  :ensure smartparens)
+(use-package smartparens
+  :after prog-mode
+  :hook (prog-mode . smartparens-mode)
 ;; END
 (no-load-path-done)
