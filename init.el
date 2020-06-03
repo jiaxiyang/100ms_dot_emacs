@@ -521,6 +521,6 @@
 (use-package evil)
 (use-package smartparens
   :after prog-mode
-  :hook (prog-mode . smartparens-mode)
+  :hook (prog-mode . smartparens-mode))
 ;; END
 (no-load-path-done)
