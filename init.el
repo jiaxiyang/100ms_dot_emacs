@@ -517,7 +517,8 @@
   (gcmh-mode 1))
 
 ;; ********* jiaxiyang's config ********
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+                         ("melpa" . "http://melpa.milkbox.net/packages/")))
 (use-package evil)
 (use-package smartparens
   :after prog-mode
