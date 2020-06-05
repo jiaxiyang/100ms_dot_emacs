@@ -519,6 +519,7 @@
 ;; ********* jiaxiyang's config ********
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
+(global-undo-tree-mode 1)
 (use-package evil)
 (use-package smartparens
   :after prog-mode
