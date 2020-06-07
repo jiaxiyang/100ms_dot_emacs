@@ -254,7 +254,7 @@
 
 ;; 需要project.el 0.3.0
 (use-package eglot
-  :defines (eglot-mode-map eglot-server-programs) 
+  :defines (eglot-mode-map eglot-server-programs)
   :hook (((c-mode c++-mode) . eglot-ensure))
   :bind (:map eglot-mode-map
               ("C-c h" . eglot-help-at-point)
@@ -524,5 +524,10 @@
 (use-package smartparens
   :after prog-mode
   :hook (prog-mode . smartparens-mode))
+
+;; (use-package dracula-theme
+  ;; :ensure t
+  ;; :config (load-theme 'dracula t))
+
 ;; END
 (no-load-path-done)
