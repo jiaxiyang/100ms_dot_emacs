@@ -527,7 +527,7 @@
 
 (global-set-key "\M-n" 'next-line)
 (global-set-key "\M-p" 'previous-line)
-
+(global-unset-key [C-down-mouse-1])
 ;; (use-package dracula-theme
   ;; :ensure t
   ;; :config (load-theme 'dracula t))
