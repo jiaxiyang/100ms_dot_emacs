@@ -525,6 +525,9 @@
   :after prog-mode
   :hook (prog-mode . smartparens-mode))
 
+(global-set-key "\M-n" 'next-line)
+(global-set-key "\M-p" 'previous-line)
+
 ;; (use-package dracula-theme
   ;; :ensure t
   ;; :config (load-theme 'dracula t))
