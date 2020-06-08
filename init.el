@@ -524,6 +524,7 @@
 (use-package smartparens
   :after prog-mode
   :hook (prog-mode . smartparens-mode))
+(use-package multiple-cursors)
 
 (global-set-key "\M-n" 'next-line)
 (global-set-key "\M-p" 'previous-line)
