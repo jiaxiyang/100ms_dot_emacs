@@ -525,6 +525,10 @@
   :after prog-mode
   :hook (prog-mode . smartparens-mode))
 (use-package multiple-cursors)
+(use-package keyfreq
+  :config
+  (keyfreq-mode 1)
+  (keyfreq-autosave-mode 1))
 
 (global-set-key "\M-n" 'next-line)
 (global-set-key "\M-p" 'previous-line)
