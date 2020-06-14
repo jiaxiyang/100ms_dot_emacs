@@ -7,7 +7,7 @@ TARBALL := out/jia_100ms_dot_emacs.emacs.d.$(VERSION).tar.gz
 all: $(SRC_TARBALL) $(SRC_ZIPBALL)  $(TARBALL)
 
 $(TARBALL): $(HOME)/.emacs.d/init.elc
-	(cp project-0.3.0/* ~/.emacs.d/straight/build/project/;cd -P $(HOME)/.emacs.d; cd ..;tar -zcf - \
+	(cd -P $(HOME)/.emacs.d; cd ..;tar -zcf - \
 		--exclude=.emacs.d/straight/repos \
 		.emacs.d/.autoloads.el \
 		.emacs.d/.autoloads.elc \
