@@ -520,11 +520,16 @@
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 (global-undo-tree-mode 1)
+(use-package bookmark+)
 (use-package evil)
 (use-package smartparens
   :after prog-mode
   :hook (prog-mode . smartparens-mode))
 (use-package multiple-cursors)
+(use-package hungry-delete)
+(use-package org-bullets
+  :config
+  (org-bullets-mode 1))
 (use-package keyfreq
   :config
   (keyfreq-mode 1)
