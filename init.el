@@ -134,8 +134,6 @@
   ;; add ‘recentf-mode’ and bookmarks to ‘ivy-switch-buffer’.
   (setq ivy-use-virtual-buffers t)
   ;; no regexp by default
-  (setq ivy-initial-inputs-alist nil)
-  (setq ivy-display-style 'fancy)
   (setq ivy-count-format "%d/%d ")
   )
 
@@ -541,39 +539,50 @@
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 (global-undo-tree-mode 1)
 
+;; bookmarks+
 (use-package bookmark+)
 
+;; evil
 (use-package evil)
 
+;; smartparens
 (use-package smartparens
   :after prog-mode
   :hook (prog-mode . smartparens-mode))
 
+;; multiple-cursors
 (use-package multiple-cursors)
 
+;; hungrey-delete
 (use-package hungry-delete
   :config
   (global-hungry-delete-mode))
 
+;; org-bullets
 (use-package org-bullets
   :config
   (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
 
+;; keyfreq
 (use-package keyfreq
   :config
   (keyfreq-mode 1)
   (keyfreq-autosave-mode 1))
 
-(use-package doom-modeline
-  :init
-  (doom-modeline-mode 1))
+;; ;; doom-modeline
+;; (use-package doom-modeline
+;;   :config
+;;   (doom-modeline-mode 1))
 
+;; focus
 (use-package focus)
 
+;; ivy-rich
 (use-package ivy-rich
   :config
   (ivy-rich-mode 1))
 
+;; aggressive-indent
 (use-package aggressive-indent)
 
 ;; (use-package git-gutter
@@ -581,12 +590,42 @@
 ;;   :config
 ;;   (global-git-gutter-mode))
 
-(global-set-key "\M-n" 'next-line)
-(global-set-key "\M-p" 'previous-line)
-(global-unset-key [C-down-mouse-1])
 ;; (use-package dracula-theme
   ;; :ensure t
   ;; :config (load-theme 'dracula t))
+
+;;google translate
+(use-package google-translate
+  :defines
+  (google-translate-base-url google-translate-listen-url
+                             google-translate--tkk-url
+                             google-translate-default-source-language
+                             google-translate-default-target-language)
+  :functions (google-translate-version)
+  :config
+  ;; (when (and (string-match "0.11.18"
+  ;;                          (google-translate-version))
+  ;;            (>= (time-to-seconds)
+  ;;                (time-to-seconds
+  ;;                 (encode-time 0 0 0 23 9 2018))))
+  ;;   (defun google-translate--get-b-d1 ()
+  ;;     ;; TKK='427110.1469889687'
+  ;;     (list 427110 1469889687)))
+
+  (setq google-translate-base-url
+        "http://translate.google.cn/translate_a/single")
+  (setq google-translate-listen-url
+        "http://translate.google.cn/translate_tts")
+  (setq google-translate--tkk-url
+        "http://translate.google.cn/")
+  (setq google-translate-default-source-language "en")
+  (setq google-translate-default-target-language "zh-CN"))
+
+
+;; key-bind
+(global-set-key "\M-n" 'next-line)
+(global-set-key "\M-p" 'previous-line)
+(global-unset-key [C-down-mouse-1])
 
 ;; END
 (no-load-path-done)
