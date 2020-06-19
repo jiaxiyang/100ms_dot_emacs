@@ -576,10 +576,10 @@
 
 (use-package aggressive-indent)
 
-(use-package git-gutter
-  :ensure t
-  :config
-  (global-git-gutter-mode))
+;; (use-package git-gutter
+;;   :ensure t
+;;   :config
+;;   (global-git-gutter-mode))
 
 (global-set-key "\M-n" 'next-line)
 (global-set-key "\M-p" 'previous-line)
