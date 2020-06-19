@@ -149,13 +149,15 @@
 
 (use-package swiper
   :bind ( ("C-s" . swiper-isearch)
-         ;; ("C-r" . swiper-isearch)
-         ("C-c C-r" . ivy-resume)
-         ("M-x" . counsel-M-x)
-         ("C-x C-f" . counsel-find-file))
+          ;; ("C-r" . swiper-isearch)
+          ("C-c C-r" . ivy-resume)
+          ("M-x" . counsel-M-x)
+          ("C-x C-f" . counsel-find-file))
   :config
   (progn
     (ivy-mode 1)
+    (setq ivy-use-virtual-buffers t)
+    (setq ivy-display-style 'fancy)
     (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
     ))
 
@@ -207,8 +209,8 @@
          ("<f7>" . compile))
   :defines (compilation-scroll-output compilation-read-command)
   :config
-       (setq compilation-scroll-output t
-           compilation-read-command nil))
+  (setq compilation-scroll-output t
+        compilation-read-command nil))
 
 ;; == ffap
 (use-package ffap
@@ -538,20 +540,46 @@
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
 (global-undo-tree-mode 1)
+
 (use-package bookmark+)
+
 (use-package evil)
+
 (use-package smartparens
   :after prog-mode
   :hook (prog-mode . smartparens-mode))
+
 (use-package multiple-cursors)
-(use-package hungry-delete)
+
+(use-package hungry-delete
+  :config
+  (global-hungry-delete-mode))
+
 (use-package org-bullets
   :config
-  (org-bullets-mode 1))
+  (add-hook 'org-mode-hook (lambda () (org-bullets-mode 1))))
+
 (use-package keyfreq
   :config
   (keyfreq-mode 1)
   (keyfreq-autosave-mode 1))
+
+(use-package doom-modeline
+  :init
+  (doom-modeline-mode 1))
+
+(use-package focus)
+
+(use-package ivy-rich
+  :config
+  (ivy-rich-mode 1))
+
+(use-package aggressive-indent)
+
+(use-package git-gutter
+  :ensure t
+  :config
+  (global-git-gutter-mode))
 
 (global-set-key "\M-n" 'next-line)
 (global-set-key "\M-p" 'previous-line)
