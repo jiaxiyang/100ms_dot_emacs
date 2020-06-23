@@ -122,8 +122,7 @@
   :defer 2
   :diminish ivy-mode
   :defines (ivy-use-virtual-buffers
-            ivy-initial-inputs-alist
-            ivy-display-style ivy-count-format
+            ivy-count-format
             ivy-minibuffer-map)
   :functions (ivy-mode)
   :hook (after-init-idle .  ivy-mode)
@@ -154,8 +153,6 @@
   :config
   (progn
     (ivy-mode 1)
-    (setq ivy-use-virtual-buffers t)
-    (setq ivy-display-style 'fancy)
     (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
     ))
 
@@ -537,7 +534,6 @@
 ;; ********* jiaxiyang's config ********
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
-(global-undo-tree-mode 1)
 
 ;; bookmarks+
 (use-package bookmark+)
@@ -621,11 +617,8 @@
   (setq google-translate-default-source-language "en")
   (setq google-translate-default-target-language "zh-CN"))
 
-
-;; key-bind
-(global-set-key "\M-n" 'next-line)
-(global-set-key "\M-p" 'previous-line)
-(global-unset-key [C-down-mouse-1])
+;; themes
+(use-package zenburn-theme)
 
 ;; END
 (no-load-path-done)

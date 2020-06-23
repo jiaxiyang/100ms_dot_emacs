@@ -1,10 +1,16 @@
 (load "/home/xiyang/.emacs.d/init.elc")
+
 (setq make-backup-files nil)
 (setq split-width-threshold 0)
 (setq split-height-threshold nil)
-(setq eglot-ignored-server-capabilites '(:documentHighlightProvider))
-;; eglot不高亮
+(setq eglot-ignored-server-capabilites '(:documentHighlightProvider));; eglot不高亮
 
+(global-undo-tree-mode 1)
+
+;; key-bind
+(global-set-key "\M-n" 'next-line)
+(global-set-key "\M-p" 'previous-line)
+(global-unset-key [C-down-mouse-1])
 
 ;; ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
