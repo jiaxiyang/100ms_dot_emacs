@@ -543,8 +543,10 @@
 
 ;; smartparens
 (use-package smartparens
-  :after prog-mode
-  :hook (prog-mode . smartparens-mode))
+  :defines (sp-highlight-pair-overlay)
+  :config
+  (setq sp-highlight-pair-overlay nil)
+  (smartparens-global-mode 1))
 
 ;; multiple-cursors
 (use-package multiple-cursors)
@@ -620,5 +622,7 @@
 ;; themes
 (use-package zenburn-theme)
 
+;; ox_reveal
+(use-package ox-reveal)
 ;; END
 (no-load-path-done)
