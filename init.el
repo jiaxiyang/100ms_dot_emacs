@@ -623,6 +623,6 @@
 (use-package zenburn-theme)
 
 ;; ox_reveal
-(use-package ox-reveal)
+;; (use-package ox-reveal)
 ;; END
 (no-load-path-done)
