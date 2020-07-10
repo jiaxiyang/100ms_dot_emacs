@@ -1,5 +1,6 @@
 (load "/home/xiyang/.emacs.d/init.elc")
 
+(setq lsp-enable-symbol-highlighting nil) ;; lsp 不高亮
 (setq make-backup-files nil)
 (setq split-width-threshold 0)
 (setq split-height-threshold nil)
