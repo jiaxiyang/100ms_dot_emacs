@@ -625,6 +625,11 @@
 ;; format-all
 (use-package format-all)
 
+;; shfmt
+(use-package shfmt
+  :config
+  (add-hook 'sh-mode-hook 'shfmt-on-save-mode))
+
 ;; ox_reveal
 ;; (use-package ox-reveal)
 ;; END
