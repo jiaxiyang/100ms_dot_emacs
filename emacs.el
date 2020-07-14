@@ -17,7 +17,7 @@
 (defun insert-comma()
   (interactive)
   (insert ","))
-(global-set-key (kbd "C-x ,") 'insert-comma)
+(global-set-key (kbd "C-c ,") 'insert-comma)
 
 ;; ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
