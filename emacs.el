@@ -14,6 +14,11 @@
 (global-set-key "\M-p" 'previous-line)
 (global-unset-key [C-down-mouse-1])
 
+(defun insert-comma()
+  (interactive)
+  (insert ","))
+(global-set-key (kbd "C-x ,") 'insert-comma)
+
 ;; ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (setq ibuffer-saved-filter-groups
