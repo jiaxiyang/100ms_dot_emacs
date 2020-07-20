@@ -25,6 +25,7 @@
 (setq ibuffer-saved-filter-groups
       (quote (("default"
                ("dired" (mode . dired-mode))
+               ("rust" (or (mode . rust-mode) (mode . conf-toml-mode)))
                ("c++" (mode . c++-mode))
                ("python" (mode . python-mode))
                ("shell" (or (mode . eshell-mode) (mode . shell-mode)))
