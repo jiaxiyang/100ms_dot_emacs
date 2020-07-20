@@ -23,7 +23,7 @@
 ;; ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (setq ibuffer-saved-filter-groups
-      (quote (("Default"
+      (quote (("default"
                ("Dired" (mode . dired-mode))
                ("Rust" (or (mode . rust-mode) (mode . conf-toml-mode)))
                ("C++" (mode . c++-mode))
