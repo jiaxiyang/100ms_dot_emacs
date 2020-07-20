@@ -23,15 +23,15 @@
 ;; ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (setq ibuffer-saved-filter-groups
-      (quote (("default"
-               ("dired" (mode . dired-mode))
-               ("rust" (or (mode . rust-mode) (mode . conf-toml-mode)))
-               ("c++" (mode . c++-mode))
-               ("python" (mode . python-mode))
-               ("shell" (or (mode . eshell-mode) (mode . shell-mode)))
-               ("org" (name . "^.*org$"))
-               ("magit" (mode . magit-mode))
-               ("emacs" (or
+      (quote (("Default"
+               ("Dired" (mode . dired-mode))
+               ("Rust" (or (mode . rust-mode) (mode . conf-toml-mode)))
+               ("C++" (mode . c++-mode))
+               ("Python" (mode . python-mode))
+               ("Shell" (or (mode . eshell-mode) (mode . shell-mode)))
+               ("Org" (name . "^.*org$"))
+               ("Magit" (mode . magit-mode))
+               ("Emacs" (or
                          (name . "^\\*scratch\\*$")
                          (name . "^\\*Messages\\*$")))
                ))))
