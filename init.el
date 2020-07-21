@@ -234,7 +234,7 @@
               (("C-n" . company-select-next)
                ("C-p" . company-select-previous)))
   :config
-  (setq company-idle-delay              0.6) ;;关闭自动提示
+  (setq company-idle-delay              0.4) ;;关闭自动提示
   (setq company-minimum-prefix-length   3)
   (setq company-show-numbers            t)
   (setq company-tooltip-limit           20)
