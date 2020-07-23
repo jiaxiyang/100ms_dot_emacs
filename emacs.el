@@ -24,9 +24,9 @@
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (setq ibuffer-saved-filter-groups
       (quote (("default"
-               ("Dired" (mode . dired-mode))
                ("Rust" (or (mode . rust-mode) (mode . conf-toml-mode)))
                ("C++" (or(mode . c++-mode) (mode . c-mode)))
+               ("Dired" (mode . dired-mode))
                ("Python" (mode . python-mode))
                ("Shell" (or (mode . eshell-mode) (mode . shell-mode)))
                ("Org" (name . "^.*org$"))
