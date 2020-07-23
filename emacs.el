@@ -26,7 +26,7 @@
       (quote (("default"
                ("Dired" (mode . dired-mode))
                ("Rust" (or (mode . rust-mode) (mode . conf-toml-mode)))
-               ("C++" (mode . c++-mode))
+               ("C++" (or(mode . c++-mode) (mode . c-mode)))
                ("Python" (mode . python-mode))
                ("Shell" (or (mode . eshell-mode) (mode . shell-mode)))
                ("Org" (name . "^.*org$"))
