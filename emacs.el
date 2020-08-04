@@ -1,7 +1,9 @@
 (load "/home/xiyang/.emacs.d/init.elc")
 
 (setq lsp-ui-doc-enable nil) ;; lsp关闭弹窗
+;;(setq lsp-ui-sideline-mode nil) ;; lsp 关闭右侧错误提示
 (setq lsp-enable-symbol-highlighting nil) ;; lsp 不高亮
+
 (setq make-backup-files nil)
 (setq split-width-threshold 0)
 (setq split-height-threshold nil)
