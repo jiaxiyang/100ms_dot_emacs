@@ -252,7 +252,7 @@
 
 ;; 需要project.el 0.3.0
 (use-package eglot
-  :defines (eglot-mode-map eglot-server-programs)
+  :defines (eglot-mode-map eglot-server-programs eglot-managed-mode-hook)
   :hook (((c-mode c++-mode) . eglot-ensure))
   :bind (:map eglot-mode-map
               ("C-c h" . eglot-help-at-point)
@@ -267,6 +267,7 @@
               ("C-c r" . eglot-rename)
               ("C-c a" . eglot-code-actions))
   :config
+  (add-hook 'eglot--managed-mode-hook (lambda () (flymake-mode -1)))
   (add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
   )
 (use-package lsp-mode
@@ -349,11 +350,6 @@
 ;;   (wcy123-snippets-initialize))
 
 
-;; == flycheck ==
-(use-package flycheck
-  :disabled t
-  :hook ((c++-mode c-mode) . flycheck-mode))
-
 ;; == ace-jump-mode
 (use-package ace-jump-mode)
 
@@ -421,6 +417,13 @@
           (other . "gnu")
           )))
 
+
+;; == flycheck ==
+(use-package flycheck
+  :after (cc-mode)
+  :hook (c++-mode . flycheck-mode)
+  :hook (c-mode . flycheck-mode))
+
 ;; == clang-format
 (use-package clang-format
   :defines (clang-format-fallback-style)
