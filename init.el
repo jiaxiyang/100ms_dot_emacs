@@ -379,6 +379,15 @@
   :commands
   (tmux-cc-send-current-line tmux-cc-select-block
                              tmux-cc-send-region))
+
+;; == insert-translated-name
+(use-package insert-translated-name
+  :straight
+  (insert-translated-name-mode :type git
+           :host github
+           :repo "manateelazycat/insert-translated-name")
+  :defer 1)
+
 ;; == shell
 (use-package sh-script
   :defer t
