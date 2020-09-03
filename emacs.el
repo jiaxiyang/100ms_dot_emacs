@@ -12,6 +12,8 @@
 (global-undo-tree-mode 1)
 
 ;; key-bind
+(global-set-key (kbd "ESC <up>") 'move-text-up)
+(global-set-key (kbd "ESC <down>") 'move-text-down)
 (global-set-key "\M-n" 'next-line)
 (global-set-key "\M-p" 'previous-line)
 (global-unset-key [C-down-mouse-1])
