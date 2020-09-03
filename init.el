@@ -646,6 +646,12 @@
 ;; goto-chg
 (use-package goto-chg)
 
+;; rainbow-delimiters
+(use-package rainbow-delimiters)
+
+;; move-text
+(use-package move-text)
+
 ;; ox_reveal
 ;; (use-package ox-reveal)
 ;; END
