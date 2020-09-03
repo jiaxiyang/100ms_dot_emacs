@@ -393,8 +393,8 @@
   :defer t
   :defines (sh-mode-map)
   :bind (:map sh-mode-map
-              ("C-z" . tmux-cc-send-current-line)
-              ("M-z" . tmux-cc-send-region)))
+              ("M-z" . tmux-cc-send-current-line)
+              ("C-z" . tmux-cc-send-region)))
 ;; == markdown
 (use-package markdown-mode
   :defines (markdown-mode-map)
