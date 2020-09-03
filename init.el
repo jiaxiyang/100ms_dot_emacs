@@ -643,6 +643,9 @@
   :config
   (add-hook 'sh-mode-hook 'shfmt-on-save-mode))
 
+;; goto-chg
+(use-package goto-chg)
+
 ;; ox_reveal
 ;; (use-package ox-reveal)
 ;; END
