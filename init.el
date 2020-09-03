@@ -406,8 +406,8 @@
               ("ESC <down>" . markdown-move-down)
               ("ESC <left>" . markdown-promote)
               ("ESC  <right>" . markdown-demote)
-              ("C-z" . tmux-cc-send-current-line)
-              ("M-z" . tmux-cc-send-region)
+              ("M-z" . tmux-cc-send-current-line)
+              ("-z" . tmux-cc-send-region)
               ("<M-RET>" . markdown-insert-list-item)))
 
 ;; ;; == c/c++
