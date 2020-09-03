@@ -1,4 +1,3 @@
-;; 注意： emacs要用源码安装，否则make时找不到内置库，会从网上下载，导致插件和emacs版本不匹配
 
 (message "PROFILE START INIT.EL %5.2f ms acc" (* 1000.0 (float-time
                                                  (time-subtract
