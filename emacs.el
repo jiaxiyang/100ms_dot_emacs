@@ -10,6 +10,7 @@
 (setq eglot-ignored-server-capabilites '(:documentHighlightProvider));; eglot不高亮
 
 (global-undo-tree-mode 1)
+(save-place-mode 1)
 
 ;; key-bind
 (global-set-key (kbd "ESC <up>") 'move-text-up)
