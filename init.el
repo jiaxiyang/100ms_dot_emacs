@@ -651,6 +651,12 @@
 ;; move-text
 (use-package move-text)
 
+;; figlet
+(use-package figlet)
+
+;; origami
+(use-package origami
+:ensure t)
 ;; ox_reveal
 ;; (use-package ox-reveal)
 ;; END
