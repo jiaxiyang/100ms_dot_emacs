@@ -655,8 +655,20 @@
 (use-package figlet)
 
 ;; origami
-(use-package origami
-:ensure t)
+(use-package origami)
+
+;; whole-line-or-region
+(use-package whole-line-or-region
+  :config
+  (whole-line-or-region-global-mode t))
+
+
+
+;; (use-package goto-line-preview
+;;   :defines (goto-line-preview)
+;;   :config
+;;   (global-set-key [remap goto-line] 'goto-line-preview))
+
 ;; ox_reveal
 ;; (use-package ox-reveal)
 ;; END
