@@ -662,7 +662,10 @@
   :config
   (whole-line-or-region-global-mode t))
 
+;; indent-guide
+(use-package indent-guide)
 
+(use-package symbol-overlay)
 
 ;; (use-package goto-line-preview
 ;;   :defines (goto-line-preview)
