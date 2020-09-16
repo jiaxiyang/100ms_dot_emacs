@@ -80,3 +80,31 @@
 
 (global-set-key (kbd "M-i") 'symbol-overlay-put)
 (global-set-key (kbd "M-r") 'symbol-overlay-remove-all)
+
+(defun f-switch-to-buffer (dir)
+  (unless (minibufferp)
+    (let ((bn (buffer-name))
+	  (name (if (> dir 0) 'switch-to-next-buffer 'switch-to-prev-buffer))
+          (active-buffers (mapcar 'window-buffer (window-list)))
+          buffer p)
+      (funcall name)
+      (while (not p)
+        (setq buffer (current-buffer))
+        (if (or buffer-file-name
+                (not buffer-read-only)
+                (get-buffer-process buffer)
+                (cl-position buffer active-buffers)
+                (string= bn (buffer-name)))
+            (setq p t)
+          (kill-buffer)
+          (funcall name))))))
+
+(defun c-switch-to-next-buffer ()
+  (interactive)
+  (f-switch-to-buffer 1))
+
+(defun c-switch-to-prev-buffer ()
+  (interactive)
+  (f-switch-to-buffer 0))
+(global-set-key (kbd "M-k") 'c-switch-to-prev-buffer)
+(global-set-key (kbd "M-j") 'c-switch-to-next-buffer)

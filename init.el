@@ -144,7 +144,7 @@
          ("M-y" . ivy-next-line)))
 
 (use-package swiper
-  :bind ( ("C-s" . swiper-isearch)
+  :bind ( ;;("C-s" . swiper-isearch)
           ;; ("C-r" . swiper-isearch)
           ("C-c C-r" . ivy-resume)
           ("M-x" . counsel-M-x)
