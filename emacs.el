@@ -112,6 +112,6 @@
 (use-package anzu
   :config
   (global-anzu-mode t)
-  (setq anzu-mode-lighter "")
+  ;;(setq anzu-mode-lighter "")
   (global-set-key [remap query-replace] 'anzu-query-replace)
   (global-set-key [remap query-replace-regexp] 'anzu-query-replace-regexp))
