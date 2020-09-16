@@ -674,6 +674,19 @@
   ;;(setq anzu-mode-lighter "")
   (global-set-key [remap query-replace] 'anzu-query-replace)
   (global-set-key [remap query-replace-regexp] 'anzu-query-replace-regexp))
+
+
+;; == leader-key-mode
+(use-package awesome-tab-mode
+  :straight
+  (awesome-tab-mode :type git
+                    :host github
+                    :repo "manateelazycat/awesome-tab")
+  :functions (awesome-tab-mode)
+  :defer t
+  :config
+  (awesome-tab-mode t))
+
 ;; (use-package goto-line-preview
 ;;   :defines (goto-line-preview)
 ;;   :config

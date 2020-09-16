@@ -11,6 +11,7 @@
 
 (global-undo-tree-mode 1)
 (save-place-mode 1)
+(awesome-tab-mode 1)
 
 ;; key-bind
 (global-set-key (kbd "ESC <up>") 'move-text-up)
@@ -108,4 +109,3 @@
   (f-switch-to-buffer 0))
 (global-set-key (kbd "M-j") 'c-switch-to-prev-buffer)
 (global-set-key (kbd "M-k") 'c-switch-to-next-buffer)
-
