@@ -106,6 +106,6 @@
 (defun c-switch-to-prev-buffer ()
   (interactive)
   (f-switch-to-buffer 0))
-(global-set-key (kbd "M-k") 'c-switch-to-prev-buffer)
-(global-set-key (kbd "M-j") 'c-switch-to-next-buffer)
+(global-set-key (kbd "M-j") 'c-switch-to-prev-buffer)
+(global-set-key (kbd "M-k") 'c-switch-to-next-buffer)
 
