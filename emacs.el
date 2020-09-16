@@ -76,7 +76,7 @@
   (move-end-of-line 1)
   (newline-and-indent))
 (global-set-key (kbd "C-M-j") 'newline-at-end-of-line)
-(global-set-key (kbd "M-j") 'newline-at-end-of-line)
+(global-set-key (kbd "M-RET") 'newline-at-end-of-line)
 
 (global-set-key (kbd "M-i") 'symbol-overlay-put)
 (global-set-key (kbd "M-r") 'symbol-overlay-remove-all)
