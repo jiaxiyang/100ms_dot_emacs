@@ -587,7 +587,7 @@
 ;; focus
 (use-package focus)
 
-;; ivy-rich
+;; ivy-rich Notes: takes 80ms when startup
 (use-package ivy-rich
   :config
   (ivy-rich-mode 1))
@@ -667,6 +667,13 @@
 
 (use-package symbol-overlay)
 
+
+(use-package anzu
+  :config
+  (global-anzu-mode t)
+  ;;(setq anzu-mode-lighter "")
+  (global-set-key [remap query-replace] 'anzu-query-replace)
+  (global-set-key [remap query-replace-regexp] 'anzu-query-replace-regexp))
 ;; (use-package goto-line-preview
 ;;   :defines (goto-line-preview)
 ;;   :config
