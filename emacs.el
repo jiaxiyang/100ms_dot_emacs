@@ -11,7 +11,6 @@
 
 (global-undo-tree-mode 1)
 (save-place-mode 1)
-(awesome-tab-mode 1)
 
 ;; key-bind
 (global-set-key (kbd "ESC <up>") 'move-text-up)
