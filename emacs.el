@@ -108,3 +108,6 @@
   (f-switch-to-buffer 0))
 (global-set-key (kbd "M-j") 'c-switch-to-prev-buffer)
 (global-set-key (kbd "M-k") 'c-switch-to-next-buffer)
+(global-set-key (kbd "M-j") 'awesome-tab-backward-tab)
+(global-set-key (kbd "M-k") 'awesome-tab-forward-tab)
+
