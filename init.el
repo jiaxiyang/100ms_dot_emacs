@@ -716,6 +716,8 @@
     ("C-a" awesome-tab-select-beg-tab)
     ("C-e" awesome-tab-select-end-tab)
     ("C-j" awesome-tab-ace-jump)
+    ("C-h" awesome-tab-move-current-tab-to-left)
+    ("C-l" awesome-tab-move-current-tab-to-right)
     ("b" ivy-switch-buffer)
     ("g" awesome-tab-counsel-switch-group)
     ("C-k" kill-current-buffer)
