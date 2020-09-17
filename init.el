@@ -365,7 +365,7 @@
                    :host github
                    :repo "jiaxiyang/leader-key-mode")
   :functions (leader-key-mode)
-  :defer 1
+  ;; :defer 1
   :config
   (leader-key-mode))
 
