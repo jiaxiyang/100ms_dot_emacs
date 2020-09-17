@@ -80,6 +80,8 @@
 
 (global-set-key (kbd "M-i") 'symbol-overlay-put)
 (global-set-key (kbd "M-r") 'symbol-overlay-remove-all)
+(global-set-key (kbd "ESC <left>") 'symbol-overlay-switch-forward)
+(global-set-key (kbd "ESC <right>") 'symbol-overlay-switch-backward)
 
 (defun f-switch-to-buffer (dir)
   (unless (minibufferp)
