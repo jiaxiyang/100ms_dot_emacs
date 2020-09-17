@@ -683,8 +683,12 @@
                     :host github
                     :repo "manateelazycat/awesome-tab")
   :functions (awesome-tab-mode)
-  :defer t
   :config
+  (setq frame-background-mode 'dark)
+  (setq awesome-tab-terminal-dark-select-background-color "#e5e5e5")
+  (setq awesome-tab-terminal-dark-select-foreground-color "#222222")
+  ;; (setq awesome-tab-terminal-dark-unselect-background-color "")
+  ;; (setq awesome-tab-terminal-dark-unselect-foreground-color "e5e5e5")
   (awesome-tab-mode t))
 
 ;; (use-package goto-line-preview
