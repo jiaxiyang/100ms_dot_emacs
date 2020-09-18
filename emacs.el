@@ -116,3 +116,10 @@
 (global-set-key (kbd "M-l") 'awesome-tab-forward-tab)
 
 
+(setq mode-line-modes
+      (mapcar (lambda (elem)
+                (pcase elem
+                  (`(:propertize (,_ minor-mode-alist . ,_) . ,_)
+                   "")
+                  (t elem)))
+              mode-line-modes))
