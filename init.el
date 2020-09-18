@@ -1,4 +1,3 @@
-
 (message "PROFILE START INIT.EL %5.2f ms acc" (* 1000.0 (float-time
                                                  (time-subtract
                      (current-time)
@@ -6,20 +5,16 @@
 ;; A big contributor to startup times is garbage collection. We up the gc
 ;; threshold to temporarily prevent it from running, then reset it later by
 ;; enabling `gcmh-mode'. Not resetting it will cause stuttering/freezes.
-(setq gc-cons-threshold most-positive-fixnum)
-(setq make-backup-files nil)
-(setq split-width-threshold 0)
-(setq split-height-threshold nil)
-;;(setq eglot-ignored-server-capabilites '(:documentHighlightProvider)) ;; eglot不高亮
 
 (eval-when-compile
   ;; no-load-path.el must be found in `load-path`. Fortunately this is
   ;; only needed at compile time.
   (require 'no-load-path))
+
 (profile-form
  'no-load-path-init
  (no-load-path-init))
-
+
 (profile-form
  'add-hook
  (progn
@@ -37,7 +32,7 @@
                                           (time-subtract
                                            after-init-time
                                            before-init-time)))))))))
-
+
 ;; == basic configurations
 (eval-after-load 'simple
   '(progn
@@ -48,6 +43,7 @@
     (pending-delete-mode 1)
     (defalias 'yes-or-no-p #'y-or-n-p)))
 
+;; == xt-mouse
 (use-package xt-mouse
   :straight (xt-mouse :type built-in)
   :when (not (display-graphic-p))
@@ -55,13 +51,9 @@
   :config (xterm-mouse-mode 1)
   (require 'mwheel))
 
-(setq
- ;; I prefer split horizontally.
- split-width-threshold 160
- ;; keyboard scroll one line at a time
- scroll-step 1)
-(menu-bar-mode -1)
 ;; scroll one line at a time (less "jumpy" than defaults)
+
+;; == mwheel
 (use-package mwheel
   :straight (mwheel :type built-in)
   :functions (mouse-wheel-mode)
@@ -73,7 +65,7 @@
   (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
   (mouse-wheel-mode 1)
   )
-
+
 ;; == savehist
 (use-package savehist
   :straight (savehist :type built-in)
@@ -81,7 +73,7 @@
   ;; :defer 2
   :config
   (savehist-mode 1))
-
+
 ;; == exec-path-from-shell
 (use-package exec-path-from-shell
   :when (or (memq window-system '(mac ns x))
@@ -91,7 +83,7 @@
   :functions (exec-path-from-shell-initialize)
   :config
   (exec-path-from-shell-initialize))
-
+
 ;; == configuration for win32
 (when (eq window-system 'w32)
   (defvar putty-directory)
@@ -102,20 +94,20 @@
 	     (file-directory-p putty-directory))
     (setenv "PATH" (concat putty-directory ";" (getenv "PATH")))
     (add-to-list 'exec-path putty-directory)))
-
+
 ;; == diminish
 (use-package diminish)
-
-;;
+
+;; == expand-region
 (use-package expand-region
   :commands (er/expand-region)
   :bind ("C-@" . er/expand-region))
-
+
 ;; == help
 (use-package discover-my-major
   :bind (("C-h RET" . discover-my-major)
          ("C-h M-m" . discover-my-mode)))
-
+
 ;; == ivy mode
 (use-package ivy
   :defer 2
@@ -135,7 +127,10 @@
   (setq ivy-count-format "%d/%d ")
   )
 
+;; == ivy-hydra
 (use-package ivy-hydra)
+
+;; == counsel
 (use-package counsel
   :defer t
   :defines (ivy-minibuffer-map)
@@ -143,6 +138,7 @@
          :map ivy-minibuffer-map
          ("M-y" . ivy-next-line)))
 
+;; == swiper
 (use-package swiper
   :bind ( ;;("C-s" . swiper-isearch)
           ;; ("C-r" . swiper-isearch)
@@ -154,8 +150,8 @@
     (ivy-mode 1)
     (define-key read-expression-map (kbd "C-r") 'counsel-expression-history)
     ))
-
-;;== dump jump, jump to definition
+
+;; == dump jump, jump to definition
 (use-package dumb-jump
   :defines (dumb-jump-selector)
   :bind (("M-g o" . dumb-jump-go-other-window)
@@ -172,7 +168,6 @@
   ;; (dumb-jump-mode)
   )
 
-
 ;; == avy
 (use-package avy
   :disabled nil
@@ -183,7 +178,7 @@
 (use-package rg
   :commands (rg)
   :bind (("C-c s"  . rg)))
-
+
 ;; == projectile
 (use-package projectile
   :defines (projectile-completion-system projectile-command-map)
@@ -192,10 +187,11 @@
   :config
   (projectile-discover-projects-in-directory (getenv "PWD"))
   (setq projectile-completion-system 'ivy))
-
+
 ;; == magit
 (use-package magit
   :bind ("C-x g" . 'magit-status))
+
 ;; == compile
 (use-package compile
   :straight (compile :type built-in)
@@ -206,7 +202,7 @@
   (setq compilation-scroll-output t
         compilation-read-command nil
         compilation-ask-about-save nil))
-
+
 ;; == ffap
 (use-package ffap
   :defines (ffap-c-path)
@@ -215,9 +211,11 @@
       (setq ffap-c-path
             (append (split-string (getenv "INCLUDE") ":" nil)
                     ffap-c-path))))
-
+
 ;; == company-mode
 (defvar company-backends)
+
+;; == company
 (use-package company
   :after (prog-mode)
   :diminish (company-mode . "C")
@@ -240,18 +238,23 @@
   (setq company-dabbrev-downcase        nil)
   :bind (:map prog-mode-map
               ("C-r" . company-complete)))
+
+;; == company-irony
 (use-package company-irony
   :disabled t
   :after company)
+
+;; == company-c-headers
 (use-package company-c-headers
   :after company
   :defines (company-backends)
   :config
   (add-to-list 'company-backends 'company-c-headers))
-
-;; 需要project.el 0.3.0
+
+;; == eglot
 (use-package eglot
-  :defines (eglot-mode-map eglot-server-programs eglot-managed-mode-hook)
+  :defines (eglot-mode-map eglot-server-programs
+                           eglot-managed-mode-hook eglot-ignored-server-capabilites)
   :hook (((c-mode c++-mode) . eglot-ensure))
   :bind (:map eglot-mode-map
               ("C-c h" . eglot-help-at-point)
@@ -266,17 +269,29 @@
               ("C-c r" . eglot-rename)
               ("C-c a" . eglot-code-actions))
   :config
+  (setq eglot-ignored-server-capabilites '(:documentHighlightProvider));; eglot不高亮
   (add-hook 'eglot--managed-mode-hook (lambda () (flymake-mode -1)))
   (add-to-list 'eglot-server-programs '((c++-mode c-mode) "clangd"))
   )
+
+;; == lsp-mode
 (use-package lsp-mode
-  :defines (lsp-keymap-prefix)
+  :defines (lsp-keymap-prefix lsp-enable-symbol-highlighting lsp-ui-doc-enable)
   :commands (lsp lsp-deferred)
   :init (setq lsp-keymap-prefix "C-l")
   :hook (((rust-mode)
           . lsp-deferred)
-         (lsp-mode . lsp-enable-which-key-integration)))
-(use-package lsp-ui :commands lsp-ui-mode)
+         (lsp-mode . lsp-enable-which-key-integration))
+  :config
+  (setq lsp-ui-doc-enable nil) ;; lsp关闭弹窗
+  ;;(setq lsp-ui-sideline-mode nil) ;; lsp 关闭右侧错误提示
+  (setq lsp-enable-symbol-highlighting nil)) ;; lsp 不高亮
+
+;; == lsp-ui
+(use-package lsp-ui
+  :commands lsp-ui-mode)
+
+;; == company-lsp
 (use-package company-lsp
   :after (company)
   :commands company-lsp
@@ -284,14 +299,23 @@
   ;; no need to do it, lsp already did it
   ;; (push 'company-lsp company-backends)
   )
+
+;; == lsp-ivy
 (use-package lsp-ivy :commands lsp-ivy-workspace-symbol)
+
+;; == lsp-treemacs
 (use-package lsp-treemacs :commands lsp-treemacs-errors-list)
+
+;; == dap-mode
 (use-package dap-mode)
+
+;; == which-key
 (use-package which-key
   :defer 1
   :config
   (which-key-mode))
-
+
+;; == hippie-exp
 (use-package hippie-exp
   :straight (hippie-exp :type built-in)
   :bind ("M-?" . hippie-expand))
@@ -304,6 +328,8 @@
                     :repo "wcy123/skeleton-snippet")
   :bind (("C-]" . skeleton-snippet))
   )
+
+;; == skeleton-snippet-store
 (use-package skeleton-snippet-store
   :straight
   (skeleton-snippet-store :type git
@@ -324,7 +350,7 @@
 ;;               ("TAB" . nil))
 ;;   :config
 ;;   (define-key yas-minor-mode-map (kbd "M-?") yas-maybe-expand)
-;;   (eval-after-load 'hippie-exp
+;;   (eval-after-load 'hippine-exp
 ;;     '(progn
 ;;       (add-to-list 'hippie-expand-try-functions-list 'yas-hippie-try-expand))))
 
@@ -348,16 +374,16 @@
 ;;   :config
 ;;   (wcy123-snippets-initialize))
 
-
+
 ;; == ace-jump-mode
 (use-package ace-jump-mode)
-
+
 ;; == recentf
 (use-package recentf
      :defines (recentf-max-saved-items)
      :config
      (setq recentf-max-saved-items 200))
-
+
 ;; == leader-key-mode
 (use-package leader-key-mode
   :straight
@@ -368,7 +394,7 @@
   ;; :defer 1
   :config
   (leader-key-mode))
-
+
 ;; == tmux-cc
 (use-package tmux-cc
   :straight
@@ -394,6 +420,7 @@
   :bind (:map sh-mode-map
               ("M-z" . tmux-cc-send-current-line)
               ("C-z" . tmux-cc-send-region)))
+
 ;; == markdown
 (use-package markdown-mode
   :defines (markdown-mode-map)
@@ -409,7 +436,7 @@
               ("C-z" . tmux-cc-send-region)
               ("<M-RET>" . markdown-insert-list-item)))
 
-;; ;; == c/c++
+;; == c/c++
 (use-package cc-mode
   :after (cc-mode)
   :defines (c-default-style)
@@ -424,9 +451,8 @@
           (c++-mode . "stroustrup")
           (other . "gnu")
           )))
-
 
-;; == flycheck ==
+;; == flycheck
 (use-package flycheck
   :after (cc-mode)
   :hook (c++-mode . flycheck-mode)
@@ -446,13 +472,14 @@
   :defines (gud-chdir-before-run)
   :config
   (setq gud-chdir-before-run nil))
+
 ;; == xcscope
 (use-package xcscope
   :after cc-mode
   :hook (c-mode . cscope-minor-mode)
   :hook (c++-mode . cscope-minor-mode)
   :hook (dired-mode-hook . cscope-minor-mode))
-
+
 ;; == cmake
 (use-package cmake-mode
   :defines (company-backends)
@@ -463,6 +490,7 @@
   (defun my-cmake-mode-hook ()
     (set (make-local-variable 'company-backends) '(company-files
                                                    company-cmake))))
+;; == cmake-format
 (use-package cmake-format
   :after (cmake-mode)
   :disabled t ;; it seems buggy
@@ -481,7 +509,7 @@
   ;;       cmake-format-args '("list" "of" "flags"))
   )
 
-
+
 ;; -------------------- ELISP --------------------------------
 (use-package elisp-mode
   :straight (elisp-mode :type built-in)
@@ -491,6 +519,7 @@
               ("C-c C-l" . eval-buffer)
               ("C-c C-c" . eval-defun))
   :config (require 'pp))
+
 (use-package elisp-slime-nav
   :after (elisp-mode)
   :functions (elisp-slime-nav-mode)
@@ -508,15 +537,15 @@
 ;; ------------------- protobuf ------------------------
 (use-package protobuf-mode
   :mode "\\.proto\\'")
-
+
 ;; == adoc
 (use-package adoc-mode
   :mode "\\.adoc\\'")
-
+
 ;;; -------------------- haskell ---------------
 (use-package haskell-mode
   :mode "\\.hs\\'")
-
+
 ;;; ------------------ for rust ----------------------------
 (use-package rust-mode
   :mode "\\.rs\\'"
@@ -524,8 +553,10 @@
   :functions (cargo-minor-mode company-indent-or-complete-common)
   :config
   (setq rust-format-on-save t))
+
 (use-package cargo
   :hook (rust-mode . cargo-minor-mode))
+
 (use-package racer
   :defines (rust-mode-map company-tooltip-align-annotations)
   :functions (company-indent-or-complete-common )
@@ -556,6 +587,7 @@
 ;; smartparens
 (use-package smartparens
   :defines (sp-highlight-pair-overlay)
+  :defer 2
   :config
   (setq sp-highlight-pair-overlay nil)
   (smartparens-global-mode 1))
@@ -575,6 +607,7 @@
 
 ;; keyfreq
 (use-package keyfreq
+  :defer 2
   :config
   (keyfreq-mode 1)
   (keyfreq-autosave-mode 1))
@@ -589,6 +622,7 @@
 
 ;; ivy-rich Notes: takes 80ms when startup
 (use-package ivy-rich
+  :defer 2
   :config
   (ivy-rich-mode 1))
 
@@ -649,7 +683,10 @@
 (use-package rainbow-delimiters)
 
 ;; move-text
-(use-package move-text)
+(use-package move-text
+  :config
+  (global-set-key (kbd "ESC <up>") 'move-text-up)
+  (global-set-key (kbd "ESC <down>") 'move-text-down))
 
 ;; figlet
 (use-package figlet)
@@ -659,21 +696,31 @@
 
 ;; whole-line-or-region
 (use-package whole-line-or-region
+  :defer 1
   :config
   (whole-line-or-region-global-mode t))
 
 ;; indent-guide
 (use-package indent-guide)
 
-(use-package symbol-overlay)
+;; symbol-overlay
+(use-package symbol-overlay
+  :config
+  (global-set-key (kbd "M-i") 'symbol-overlay-put)
+  (global-set-key (kbd "M-r") 'symbol-overlay-remove-all)
+  (global-set-key (kbd "ESC <right>") 'symbol-overlay-switch-forward)
+  (global-set-key (kbd "ESC <left>") 'symbol-overlay-switch-backward))
 
+;; anzu
 (use-package anzu
+  :defer 1
   :config
   (global-anzu-mode t)
   ;;(setq anzu-mode-lighter "")
   (global-set-key [remap query-replace] 'anzu-query-replace)
   (global-set-key [remap query-replace-regexp] 'anzu-query-replace-regexp))
 
+;; hydra
 (use-package hydra)
 
 ;; == leader-key-mode
@@ -683,6 +730,7 @@
                     :host github
                     :repo "manateelazycat/awesome-tab")
   :functions (awesome-tab-mode)
+  :defines (awesome-tab-terminal-dark-select-background-color awesome-tab-terminal-dark-select-foreground-color)
   :config
   (setq frame-background-mode 'dark)
   (setq awesome-tab-terminal-dark-select-background-color "#e5e5e5")
@@ -690,6 +738,10 @@
   ;; (setq awesome-tab-terminal-dark-unselect-background-color "")
   ;; (setq awesome-tab-terminal-dark-unselect-foreground-color
   ;; "e5e5e5")
+  (global-set-key (kbd "M-h") 'awesome-tab-backward-tab)
+  ;; (global-set-key (kbd "M-j") 'awesome-tab-forward-group)
+  (global-set-key (kbd "M-k") 'awesome-tab-backward-group)
+  (global-set-key (kbd "M-l") 'awesome-tab-forward-tab)
 
   (defhydra awesome-fast-switch (global-map "M-j")
     "
@@ -722,6 +774,19 @@
 (use-package ace-window
   :config
   (global-set-key (kbd "M-o") 'ace-window))
+
+;; helpful
+(use-package helpful
+  :config
+  (global-set-key (kbd "C-h f") #'helpful-callable)
+  (global-set-key (kbd "C-h v") #'helpful-variable)
+  (global-set-key (kbd "C-h k") #'helpful-key))
+
+;; imenu-list
+(use-package imenu-list
+  :defer 2
+  :config
+  (global-set-key (kbd "C-^") #'imenu-list-smart-toggle))
 
 ;; simple-modeline
 ;; (use-package simple-modeline

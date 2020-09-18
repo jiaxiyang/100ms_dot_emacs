@@ -1,20 +1,22 @@
 (load "/home/xiyang/.emacs.d/init.elc")
 
-(setq lsp-ui-doc-enable nil) ;; lsp关闭弹窗
-;;(setq lsp-ui-sideline-mode nil) ;; lsp 关闭右侧错误提示
-(setq lsp-enable-symbol-highlighting nil) ;; lsp 不高亮
-
+(setq gc-cons-threshold most-positive-fixnum)
 (setq make-backup-files nil)
 (setq split-width-threshold 0)
 (setq split-height-threshold nil)
-(setq eglot-ignored-server-capabilites '(:documentHighlightProvider));; eglot不高亮
+(setq make-backup-files nil)
+(setq split-width-threshold 0)
+(setq split-height-threshold nil)
+(setq
+ split-width-threshold 160
+ ;; keyboard scroll one line at a time
+ scroll-step 1)
 
 (global-undo-tree-mode 1)
 (save-place-mode 1)
+(menu-bar-mode -1)
 
 ;; key-bind
-(global-set-key (kbd "ESC <up>") 'move-text-up)
-(global-set-key (kbd "ESC <down>") 'move-text-down)
 (global-set-key "\M-n" 'next-line)
 (global-set-key "\M-p" 'previous-line)
 (global-unset-key [C-down-mouse-1])
@@ -79,10 +81,6 @@
 (global-set-key (kbd "M-RET") 'newline-at-end-of-line)
 (global-set-key (kbd "C-o") 'newline-at-end-of-line)
 
-(global-set-key (kbd "M-i") 'symbol-overlay-put)
-(global-set-key (kbd "M-r") 'symbol-overlay-remove-all)
-(global-set-key (kbd "ESC <right>") 'symbol-overlay-switch-forward)
-(global-set-key (kbd "ESC <left>") 'symbol-overlay-switch-backward)
 
 (defun f-switch-to-buffer (dir)
   (unless (minibufferp)
@@ -110,11 +108,7 @@
   (interactive)
   (f-switch-to-buffer 0))
 ;; (global-set-key (kbd "M-j") 'c-switch-to-prev-buffer)
-(global-set-key (kbd "M-k") 'c-switch-to-next-buffer)
-(global-set-key (kbd "M-h") 'awesome-tab-backward-tab)
-;; (global-set-key (kbd "M-j") 'awesome-tab-forward-group)
-(global-set-key (kbd "M-k") 'awesome-tab-backward-group)
-(global-set-key (kbd "M-l") 'awesome-tab-forward-tab)
+;; (global-set-key (kbd "M-k") 'c-switch-to-next-buffer)
 
 ;; hide minor-mode in modeline
 (setq mode-line-modes
