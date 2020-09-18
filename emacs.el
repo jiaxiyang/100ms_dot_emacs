@@ -115,7 +115,7 @@
 (global-set-key (kbd "M-k") 'awesome-tab-backward-group)
 (global-set-key (kbd "M-l") 'awesome-tab-forward-tab)
 
-
+;; hide minor-mode in modeline
 (setq mode-line-modes
       (mapcar (lambda (elem)
                 (pcase elem
