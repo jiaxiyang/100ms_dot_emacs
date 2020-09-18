@@ -586,9 +586,10 @@
 
 ;; smartparens
 (use-package smartparens
-  :defines (sp-highlight-pair-overlay)
+  :defines (sp-autoinsert-pair sp-highlight-pair-overlay)
   :defer 2
   :config
+  (setq sp-autoinsert-pair nil)
   (setq sp-highlight-pair-overlay nil)
   (smartparens-global-mode 1))
 
@@ -755,6 +756,7 @@
     "
       ("h" awesome-tab-backward-tab)
       ("j" awesome-tab-forward-group)
+      ("M-j" awesome-tab-forward-group)
       ("k" awesome-tab-backward-group)
       ("l" awesome-tab-forward-tab)
       ("C-a" awesome-tab-select-beg-tab)

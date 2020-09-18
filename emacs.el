@@ -8,7 +8,7 @@
 (setq split-width-threshold 0)
 (setq split-height-threshold nil)
 (setq
- split-width-threshold 160
+ ;; split-width-threshold 160
  ;; keyboard scroll one line at a time
  scroll-step 1)
 
