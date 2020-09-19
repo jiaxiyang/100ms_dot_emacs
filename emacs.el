@@ -1,5 +1,6 @@
 (load "/home/xiyang/.emacs.d/init.elc")
 
+;; var config
 (setq gc-cons-threshold most-positive-fixnum)
 (setq make-backup-files nil)
 (setq split-width-threshold 0)
@@ -7,11 +8,9 @@
 (setq make-backup-files nil)
 (setq split-width-threshold 0)
 (setq split-height-threshold nil)
-(setq
- ;; split-width-threshold 160
- ;; keyboard scroll one line at a time
- scroll-step 1)
+(setq scroll-step 1)
 
+;; mode config
 (global-undo-tree-mode 1)
 (save-place-mode 1)
 (menu-bar-mode -1)
@@ -21,6 +20,7 @@
 (global-set-key "\M-p" 'previous-line)
 (global-unset-key [C-down-mouse-1])
 
+;; insert comma for comma is a leader key
 (defun insert-comma()
   (interactive)
   (insert ","))
@@ -46,42 +46,30 @@
           (lambda ()
             (ibuffer-auto-mode 1)
             (ibuffer-switch-to-saved-filter-groups "default")))
-
-;; don't show these
-                                        ;(add-to-list 'ibuffer-never-show-predicates "zowie")
-;; Don't show filter groups if there are no buffers in that group
 (setq ibuffer-show-empty-filter-groups nil)
-
-;; Don't ask for confirmation to delete marked buffers
 (setq ibuffer-expert t)
 
 
 
-;; ;; (transient-mark-mode t)
-;; (defadvice kill-ring-save (before slick-copy activate compile)
-;;  "When called interactively with no active region, copy a single line instead."
-;;   (interactive
-;;    (if mark-active (list (region-beginning) (region-end))
-;;      (message"Copied line")
-;;      (list (line-beginning-position)
-;;            (line-beginning-position 2)))))
-;; (defadvice kill-region (before slick-cut activate compile)
-;;  "When called interactively with no active region, kill a single line instead."
-;;   (interactive
-;;    (if mark-active (list (region-beginning) (region-end))
-;;      (list (line-beginning-position)
-;;            (line-beginning-position 2)))))
-
+;; newline
 (defun newline-at-end-of-line ()
   "Move to end of line, enter a newline, and reindent."
   (interactive)
   (move-end-of-line 1)
   (newline-and-indent))
+
+(defun newline-at-begin-of-line ()
+  "Move to end of line, enter a newline, and reindent."
+  (interactive)
+  (move-beginning-of-line 1)
+  (previous-line 1)
+  (newline-at-end-of-line))
+
 (global-set-key (kbd "C-M-j") 'newline-at-end-of-line)
 (global-set-key (kbd "M-RET") 'newline-at-end-of-line)
-(global-set-key (kbd "C-o") 'newline-at-end-of-line)
+(global-set-key (kbd "C-o") 'newline-at-begin-of-line)
 
-
+;; switch buffer
 (defun f-switch-to-buffer (dir)
   (unless (minibufferp)
     (let ((bn (buffer-name))

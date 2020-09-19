@@ -63,8 +63,7 @@
   (setq mouse-wheel-scroll-amount '(1 ((shift) . 1))) ;; one line at a time
   (setq mouse-wheel-progressive-speed nil) ;; don't accelerate scrolling
   (setq mouse-wheel-follow-mouse 't) ;; scroll window under mouse
-  (mouse-wheel-mode 1)
-  )
+  (mouse-wheel-mode 1))
 
 ;; == savehist
 (use-package savehist
@@ -124,8 +123,7 @@
   ;; add ‘recentf-mode’ and bookmarks to ‘ivy-switch-buffer’.
   (setq ivy-use-virtual-buffers t)
   ;; no regexp by default
-  (setq ivy-count-format "%d/%d ")
-  )
+  (setq ivy-count-format "%d/%d "))
 
 ;; == ivy-hydra
 (use-package ivy-hydra)
@@ -174,6 +172,7 @@
   :after (isearch-mode-map)
   :bind (:map isearch-mode-map
               (("C-l" . avy-isearch))))
+
 ;; === rg
 (use-package rg
   :commands (rg)
@@ -340,30 +339,34 @@
   :config
   (skeleton-snippet-store-initialize))
 
-;; (use-package yasnippet
-;;   :after (prog-mode)
-;;   :defines (yas-minor-mode-map yas-maybe-expand)
-;;   :hook (prog-mode . yas-minor-mode)
-;;   :hook (minibuffer-setup . yas-minor-mode)
-;;   :bind (:map yas-minor-mode-map
-;;               ("<tab>" . nil)
-;;               ("TAB" . nil))
-;;   :config
-;;   (define-key yas-minor-mode-map (kbd "M-?") yas-maybe-expand)
-;;   (eval-after-load 'hippine-exp
-;;     '(progn
-;;       (add-to-list 'hippie-expand-try-functions-list 'yas-hippie-try-expand))))
+;; == yasnippet
+(use-package yasnippet
+  :after (prog-mode)
+  :defines (yas-minor-mode-map yas-maybe-expand)
+  :hook (prog-mode . yas-minor-mode)
+  :hook (minibuffer-setup . yas-minor-mode)
+  :config
+  (global-set-key (kbd "M-;") 'company-yasnippet)
+  :bind (:map yas-minor-mode-map
+              ("<tab>" . nil)
+              ("TAB" . nil))
+  :config
+  (define-key yas-minor-mode-map (kbd "M-?") yas-maybe-expand)
+  (eval-after-load 'hippine-exp
+    '(progn
+      (add-to-list 'hippie-expand-try-functions-list 'yas-hippie-try-expand))))
 
-;; (use-package yasnippet-classic-snippets
-;;   ;; it takes ~300ms to load snippets
-;;   )
-;; (use-package yasnippet-snippets
-;;   ;; it takes even longger
-;;   :straight (yasnippet-snippets
-;;              :type git
-;;              :host github
-;;              :files ("*.el" "snippets")
-;;              :repo "AndreaCrotti/yasnippet-snippets"))
+(use-package yasnippet-classic-snippets)  ;; it takes ~300ms to load snippets
+
+;; == yasnippet-snippets
+(use-package yasnippet-snippets
+  ;; it takes even longger
+  :straight (yasnippet-snippets
+             :type git
+             :host github
+             :files ("*.el" "snippets")
+             :repo "AndreaCrotti/yasnippet-snippets"))
+
 ;; (use-package wcy123-snippets
 ;;   :straight (wcy123-snippets
 ;;              :type git
@@ -510,7 +513,7 @@
   )
 
 
-;; -------------------- ELISP --------------------------------
+;; == elisp-mode
 (use-package elisp-mode
   :straight (elisp-mode :type built-in)
   :hook (emacs-lisp-mode . auto-fill-mode)
@@ -520,11 +523,13 @@
               ("C-c C-c" . eval-defun))
   :config (require 'pp))
 
+;; == elisp-slime-nav
 (use-package elisp-slime-nav
   :after (elisp-mode)
   :functions (elisp-slime-nav-mode)
   :hook ((emacs-lisp-mode ielm-mode) . elisp-slime-nav-mode))
 
+;; == pp
 (use-package pp
   :straight (pp :type built-in)
   :after (pp)
@@ -534,7 +539,7 @@
   :bind (("M-:" . pp-eval-expression)
          ("C-x C-e" . pp-eval-last-sexp)))
 
-;; ------------------- protobuf ------------------------
+;; == protobuf-mode
 (use-package protobuf-mode
   :mode "\\.proto\\'")
 
@@ -542,11 +547,11 @@
 (use-package adoc-mode
   :mode "\\.adoc\\'")
 
-;;; -------------------- haskell ---------------
+;; == haskell-mode
 (use-package haskell-mode
   :mode "\\.hs\\'")
 
-;;; ------------------ for rust ----------------------------
+;; == rust-mode
 (use-package rust-mode
   :mode "\\.rs\\'"
   :defines (rust-format-on-save)
@@ -554,9 +559,11 @@
   :config
   (setq rust-format-on-save t))
 
+;; == cargo
 (use-package cargo
   :hook (rust-mode . cargo-minor-mode))
 
+;; == racer
 (use-package racer
   :defines (rust-mode-map company-tooltip-align-annotations)
   :functions (company-indent-or-complete-common )
@@ -568,7 +575,7 @@
   (define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
   (setq company-tooltip-align-annotations t))
 
-;; --- gcmh
+;; == gcmh
 (use-package gcmh
   :diminish gcmh-mode
   :config
@@ -693,7 +700,22 @@
 (use-package figlet)
 
 ;; origami
-(use-package origami)
+(use-package origami
+  :defer 1
+  :config
+  (global-set-key (kbd "M-k") 'hydra-origami/body)
+  (global-origami-mode t)
+  (defhydra hydra-origami (:color red)
+  "
+  _o_pen node    _n_ext fold       toggle _f_orward
+  _c_lose node   _p_revious fold   toggle _a_ll
+  "
+  ("o" origami-open-node)
+  ("c" origami-close-node)
+  ("n" origami-next-fold)
+  ("p" origami-previous-fold)
+  ("f" origami-forward-toggle-node)
+  ("a" origami-toggle-all-nodes)))
 
 ;; whole-line-or-region
 (use-package whole-line-or-region
@@ -741,18 +763,14 @@
   ;; "e5e5e5")
   (global-set-key (kbd "M-h") 'awesome-tab-backward-tab)
   ;; (global-set-key (kbd "M-j") 'awesome-tab-forward-group)
-  (global-set-key (kbd "M-k") 'awesome-tab-backward-group)
+  ;; (global-set-key (kbd "M-k") 'awesome-tab-backward-group)
   (global-set-key (kbd "M-l") 'awesome-tab-forward-tab)
 
   (defhydra awesome-fast-switch (global-map "M-j")
     "
-   ^^^^Fast Move             ^^^^Tab                    ^^Search            ^^Misc
-  -^^^^--------------------+-^^^^---------------------+-^^----------------+-^^---------------------------
      ^_k_^   prev group    | _C-a_^^     select first | _b_ search buffer | _C-k_   kill buffer
    _h_   _l_  switch tab   | _C-e_^^     select last  | _g_ search group  | _C-S-k_ kill others in group
-     ^_j_^   next group    | _C-j_^^     ace jump     | ^^                | ^^
-   ^^_C-h_^^ move left     | _C-l_^^     move right   | ^^                | ^^
-  -^^^^--------------------+-^^^^---------------------+-^^----------------+-^^---------------------------
+     ^_j_^   next group    | _C-j_^^     ace jump     | _C-h_  move left  | _C-l_     move right
     "
       ("h" awesome-tab-backward-tab)
       ("j" awesome-tab-forward-group)
