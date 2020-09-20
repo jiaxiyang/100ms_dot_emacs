@@ -675,7 +675,6 @@
 
 ;; themes
 (use-package zenburn-theme)
-
 ;; format-all
 (use-package format-all)
 
