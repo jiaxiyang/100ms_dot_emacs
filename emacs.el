@@ -121,5 +121,8 @@
 
 ;; set select color
 ;; (set-face-attribute 'region nil :background "#666")
-(set-face-attribute 'region nil :background "#4F6F4F") ;; find in zenburn-theme.el
+(set-face-attribute 'region nil :background "#4F6F4F") ;; find in
+;; zenburn-theme.el
+(global-hl-line-mode 1)
+(set-face-background 'hl-line "#3e4446")
 (load-theme 'zenburn t)
