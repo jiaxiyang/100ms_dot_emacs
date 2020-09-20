@@ -113,9 +113,13 @@
              "~/.emacs.d/straight/repos/zenburn-emacs")
 ;; (setq zenburn-override-colors-alist
 ;;       '(
-;;         ;; ("zenburn-bg+05" . "#FFFFFF")
 ;;         ("zenburn-bg+05" . "#282828")
+;;         ("zenburn-bg-05" . "#6F6F6F")
 ;;         ("zenburn-bg+1"  . "#2F2F2F")
 ;;         ("zenburn-bg+2"  . "#3F3F3F")
 ;;         ("zenburn-bg+3"  . "#4F4F4F")))
+
+;; set select color
+;; (set-face-attribute 'region nil :background "#666")
+(set-face-attribute 'region nil :background "#4F6F4F") ;; find in zenburn-theme.el
 (load-theme 'zenburn t)
