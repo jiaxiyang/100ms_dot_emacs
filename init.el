@@ -687,7 +687,10 @@
 (use-package goto-chg)
 
 ;; rainbow-delimiters
-(use-package rainbow-delimiters)
+(use-package rainbow-delimiters
+  :defer 1
+  :config
+  (rainbow-delimiters-mode t))
 
 ;; move-text
 (use-package move-text
@@ -814,6 +817,10 @@
   (setq-default beacon-lighter "")
   (setq-default beacon-size 20)
   (beacon-mode 1))
+
+;; rainbow: show colors with color value; usefull in face config
+(use-package rainbow-mode)
+
 ;; simple-modeline
 ;; (use-package simple-modeline
   ;; :hook (after-init . simple-modeline-mode))
