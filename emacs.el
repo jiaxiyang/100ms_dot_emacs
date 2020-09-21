@@ -110,7 +110,7 @@
 ;; zenburn theme
 ;; put `export TERM=xterm-256color` in .bashrc or .zshrc
 (add-to-list 'custom-theme-load-path
-             "~/.emacs.d/straight/repos/zenburn-emacs")
+             "~/.emacs.d/straight/build/zenburn-theme")
 ;; (setq zenburn-override-colors-alist
 ;;       '(
 ;;         ("zenburn-bg+05" . "#282828")
