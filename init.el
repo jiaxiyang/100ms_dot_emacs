@@ -819,7 +819,10 @@
   (beacon-mode 1))
 
 ;; rainbow: show colors with color value; usefull in face config
-(use-package rainbow-mode)
+(use-package rainbow-mode
+  :config
+  (add-hook 'emacs-lisp-mode-hook 'rainbow-mode))
+
 
 ;; dimmer: highlight current buffer
 (use-package dimmer)
