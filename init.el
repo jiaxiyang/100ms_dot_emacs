@@ -820,6 +820,9 @@
 ;; rainbow: show colors with color value; usefull in face config
 (use-package rainbow-mode)
 
+;; dimmer: highlight current buffer
+(use-package dimmer)
+
 ;; simple-modeline
 ;; (use-package simple-modeline
   ;; :hook (after-init . simple-modeline-mode))
