@@ -807,6 +807,13 @@
   :config
   (global-set-key (kbd "C-^") #'imenu-list-smart-toggle))
 
+;; beacon
+(use-package beacon
+  :defer 1
+  :config
+  (setq-default beacon-lighter "")
+  (setq-default beacon-size 20)
+  (beacon-mode 1))
 ;; simple-modeline
 ;; (use-package simple-modeline
   ;; :hook (after-init . simple-modeline-mode))
