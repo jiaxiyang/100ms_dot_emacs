@@ -118,11 +118,20 @@
 ;;         ("zenburn-bg+1"  . "#2F2F2F")
 ;;         ("zenburn-bg+2"  . "#3F3F3F")
 ;;         ("zenburn-bg+3"  . "#4F4F4F")))
-
-;; set select color
-;; (set-face-attribute 'region nil :background "#666")
-(set-face-attribute 'region nil :background "#4F6F4F") ;; find in
-;; zenburn-theme.el
-(global-hl-line-mode 1)
-(set-face-background 'hl-line "#3e4446")
 (load-theme 'zenburn t)
+
+
+;; color set references: zenburn-theme.el
+;; comand: list-face-display and list-colors-display
+;; use list-face-display set in .emacs and copy to emacs.el
+(global-hl-line-mode 1)
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ `(ace-jump-face-foreground
+     ((t (:foreground ,"#cd0000" :background , "#2F2F2F" :inverse-video nil))))
+ '(font-lock-function-name-face ((t (:foreground "color-27"))))
+ '(hl-line ((t (:background "#3e4446"))))
+ '(region ((t (:background "#4F6F4F")))))
