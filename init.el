@@ -688,9 +688,8 @@
 
 ;; rainbow-delimiters
 (use-package rainbow-delimiters
-  :defer 1
   :config
-  (rainbow-delimiters-mode t))
+  (add-hook 'prog-mode-hook #'rainbow-delimiters-mode))
 
 ;; move-text
 (use-package move-text
