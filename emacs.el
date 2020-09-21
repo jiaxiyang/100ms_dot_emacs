@@ -120,18 +120,22 @@
 ;;         ("zenburn-bg+3"  . "#4F4F4F")))
 (load-theme 'zenburn t)
 
-
+;; set putty color theme zenburn and set cursor color
+;; "Colour5"="220,220,220", red: "Colour8"="204,147,147" in
+;; putty zenburn theme
 ;; color set references: zenburn-theme.el
 ;; comand: list-face-display and list-colors-display
 ;; use list-face-display set in .emacs and copy to emacs.el
 (global-hl-line-mode 1)
+;; (setq cursor-type 'bar)
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- `(ace-jump-face-foreground
-     ((t (:foreground ,"#cd0000" :background , "#2F2F2F" :inverse-video nil))))
- '(font-lock-function-name-face ((t (:foreground "color-27"))))
+ ;; `(ace-jump-face-foreground
+     ;; ((t (:foreground ,"#cd0000" :background , "#2F2F2F" :inverse-video nil))))
+ '(font-lock-function-name-face ((t (:foreground "brightcyan"))))
  '(hl-line ((t (:background "#3e4446"))))
  '(region ((t (:background "#4F6F4F")))))
+
