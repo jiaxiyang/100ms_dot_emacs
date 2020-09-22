@@ -824,9 +824,14 @@
   :config
   (add-hook 'emacs-lisp-mode-hook 'rainbow-mode))
 
-
 ;; dimmer: highlight current buffer
 (use-package dimmer)
+
+;; model-line-bell
+(use-package mode-line-bell)
+
+;; browse-kill-ring
+(use-package browse-kill-ring)
 
 ;; simple-modeline
 ;; (use-package simple-modeline
