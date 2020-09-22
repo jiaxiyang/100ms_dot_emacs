@@ -9,6 +9,7 @@
 (setq split-width-threshold 0)
 (setq split-height-threshold nil)
 (setq scroll-step 1)
+(setq set-mark-command-repeat-pop t)
 
 ;; mode config
 (global-undo-tree-mode 1)
@@ -16,6 +17,10 @@
 (menu-bar-mode -1)
 
 ;; key-bind
+(global-set-key "\M-;" 'set-mark-command)
+(global-set-key "\M-m" 'pop-to-mark-command)
+;; (global-set-key "\M-m" 'pop-global-mark)
+
 (global-set-key "\M-n" 'next-line)
 (global-set-key "\M-p" 'previous-line)
 (global-unset-key [C-down-mouse-1])
