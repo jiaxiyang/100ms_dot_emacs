@@ -346,7 +346,7 @@
   :hook (prog-mode . yas-minor-mode)
   :hook (minibuffer-setup . yas-minor-mode)
   :config
-  (global-set-key (kbd "M-;") 'company-yasnippet)
+  (global-set-key (kbd "M-'") 'company-yasnippet)
   :bind (:map yas-minor-mode-map
               ("<tab>" . nil)
               ("TAB" . nil))
