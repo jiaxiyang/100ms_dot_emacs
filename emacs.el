@@ -15,6 +15,7 @@
 (global-undo-tree-mode 1)
 (save-place-mode 1)
 (menu-bar-mode -1)
+(add-hook 'dired-mode-hook 'dired-hide-details-mode)
 
 ;; key-bind
 (global-set-key "\M-;" 'set-mark-command)
