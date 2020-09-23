@@ -836,9 +836,13 @@
   ;; :hook (after-init . simple-modeline-mode))
 
 ;; mood-line-mode
-;; (use-package mood-line
-;;   :config
-;;   (mood-line-mode))
+(use-package mood-line
+  :config
+  (mood-line-mode))
+
+;; smart-line-mode
+;; (use-package smart-mode-line)
+;; (use-package sml-modeline)
 
 ;; (use-package goto-line-preview
 ;;   :defines (goto-line-preview)
