@@ -637,10 +637,8 @@
 ;; aggressive-indent
 (use-package aggressive-indent)
 
-;; (use-package git-gutter
-;;   :ensure t
-;;   :config
-;;   (global-git-gutter-mode))
+;; git-gutter
+(use-package git-gutter)
 
 ;; (use-package dracula-theme
   ;; :ensure t
