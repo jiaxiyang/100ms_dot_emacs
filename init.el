@@ -840,6 +840,9 @@
   :config
   (mood-line-mode))
 
+;; smex: used by counsel-M-x to show recent command
+(use-package smex)
+
 ;; smart-line-mode
 ;; (use-package smart-mode-line)
 ;; (use-package sml-modeline)
