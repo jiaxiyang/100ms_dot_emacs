@@ -854,5 +854,20 @@
 
 ;; ox_reveal
 ;; (use-package ox-reveal)
+
+;; dired-recent C-x C-d
+(use-package dired-recent
+  :defer 2
+  :config
+  (dired-recent-mode  1))
+
+;; keypression
+(use-package keypression)
+
+;; perspective
+;; (use-package perspective
+;;   :config
+;;   (persp-mode))
+
 ;; END
 (no-load-path-done)
