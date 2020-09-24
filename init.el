@@ -437,7 +437,9 @@
               ("ESC  <right>" . markdown-demote)
               ("M-z" . tmux-cc-send-current-line)
               ("C-z" . tmux-cc-send-region)
-              ("<M-RET>" . markdown-insert-list-item)))
+              ("<M-RET>" . newline-at-end-of-line)
+              ("M-n" . next-line)
+              ("M-p" . previous-line)))
 
 ;; == c/c++
 (use-package cc-mode
