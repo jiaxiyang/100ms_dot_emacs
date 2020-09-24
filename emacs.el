@@ -25,14 +25,8 @@
 
 (global-set-key "\M-n" 'next-line)
 (global-set-key "\M-p" 'previous-line)
+(global-set-key (kbd "M-SPC") 'scroll-up-command)
 (global-unset-key [C-down-mouse-1])
-
-;; insert comma for comma is a leader key
-(defun insert-comma()
-  (interactive)
-  (insert ","))
-(global-set-key (kbd "C-c ,") 'insert-comma)
-(global-set-key (kbd "C-x ,") 'insert-comma)
 
 ;; ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
@@ -55,8 +49,6 @@
             (ibuffer-switch-to-saved-filter-groups "default")))
 (setq ibuffer-show-empty-filter-groups nil)
 (setq ibuffer-expert t)
-
-
 
 ;; newline
 (defun newline-at-end-of-line ()
