@@ -16,6 +16,7 @@
 (save-place-mode 1)
 (menu-bar-mode -1)
 (add-hook 'dired-mode-hook 'dired-hide-details-mode)
+;; (display-time-mode 1)
 
 ;; key-bind
 (global-set-key "\M-;" 'set-mark-command)
@@ -145,3 +146,8 @@
  '(hl-line ((t (:background "#3e4446"))))
  '(region ((t (:background "#4F6F4F")))))
 
+;; useful functions
+(defun reload-emacs()
+  "Reload emacs configuration"
+  (interactive)
+  (load-file "~/.emacs"))
