@@ -673,6 +673,8 @@
 
 ;; themes
 (use-package zenburn-theme)
+(use-package solarized-theme)
+
 ;; format-all
 (use-package format-all)
 
