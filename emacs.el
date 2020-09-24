@@ -118,14 +118,13 @@
 ;; put `export TERM=xterm-256color` in .bashrc or .zshrc
 (add-to-list 'custom-theme-load-path
              "~/.emacs.d/straight/build/zenburn-theme")
-;; (setq zenburn-override-colors-alist
-;;       '(
-;;         ("zenburn-bg+05" . "#282828")
-;;         ("zenburn-bg-05" . "#6F6F6F")
-;;         ("zenburn-bg+1"  . "#2F2F2F")
-;;         ("zenburn-bg+2"  . "#3F3F3F")
-;;         ("zenburn-bg+3"  . "#4F4F4F")))
 (load-theme 'zenburn t)
+
+;; solarized
+;;(add-to-list 'custom-theme-load-path
+;;             "~/.emacs.d/straight/build/solarized-theme")
+;;(load-theme 'solarized-light t)
+
 
 ;; set putty color theme zenburn and set cursor color
 ;; "Colour5"="220,220,220", red: "Colour8"="204,147,147" in
