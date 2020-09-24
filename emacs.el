@@ -1,4 +1,4 @@
-(load "/home/xiyang/.emacs.d/init.elc")
+(load "~/.emacs.d/init.elc")
 
 ;; var config
 (setq gc-cons-threshold most-positive-fixnum)
