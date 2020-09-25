@@ -873,5 +873,16 @@
 ;;   :config
 ;;   (persp-mode))
 
+;; move-dum
+(use-package move-dup)
+
+;; crus
+(use-package crux
+  :config
+  (global-set-key (kbd "C-M-j") 'crux-smart-open-line)
+  (global-set-key (kbd "M-RET") 'crux-smart-open-line)
+  (global-set-key (kbd "C-o") 'crux-smart-open-line-above)
+  (global-set-key (kbd "<f5>") 'crux-find-user-init-file))
+
 ;; END
 (no-load-path-done)
