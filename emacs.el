@@ -50,53 +50,6 @@
 (setq ibuffer-show-empty-filter-groups nil)
 (setq ibuffer-expert t)
 
-;; newline
-(defun newline-at-end-of-line ()
-  "Move to end of line, enter a newline, and reindent."
-  (interactive)
-  (move-end-of-line 1)
-  (newline-and-indent))
-
-(defun newline-at-begin-of-line ()
-  "Move to end of line, enter a newline, and reindent."
-  (interactive)
-  (move-beginning-of-line 1)
-  (previous-line 1)
-  (newline-at-end-of-line))
-
-(global-set-key (kbd "C-M-j") 'newline-at-end-of-line)
-(global-set-key (kbd "M-RET") 'newline-at-end-of-line)
-(global-set-key (kbd "C-o") 'newline-at-begin-of-line)
-
-;; switch buffer
-(defun f-switch-to-buffer (dir)
-  (unless (minibufferp)
-    (let ((bn (buffer-name))
-	  (name (if (> dir 0) 'switch-to-next-buffer 'switch-to-prev-buffer))
-          (active-buffers (mapcar 'window-buffer (window-list)))
-          buffer p)
-      (funcall name)
-      (while (not p)
-        (setq buffer (current-buffer))
-        (if (or buffer-file-name
-                (not buffer-read-only)
-                (get-buffer-process buffer)
-                (cl-position buffer active-buffers)
-                (string= bn (buffer-name)))
-            (setq p t)
-          (kill-buffer)
-          (funcall name))))))
-
-(defun c-switch-to-next-buffer ()
-  (interactive)
-  (f-switch-to-buffer 1))
-
-(defun c-switch-to-prev-buffer ()
-  (interactive)
-  (f-switch-to-buffer 0))
-;; (global-set-key (kbd "M-j") 'c-switch-to-prev-buffer)
-;; (global-set-key (kbd "M-k") 'c-switch-to-next-buffer)
-
 ;; hide minor-mode in modeline
 (setq mode-line-modes
       (mapcar (lambda (elem)
@@ -142,3 +95,4 @@
   "Reload emacs configuration"
   (interactive)
   (load-file "~/.emacs"))
+(global-set-key (kbd "<f6>") 'reload-emacs)
