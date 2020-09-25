@@ -437,7 +437,7 @@
               ("ESC  <right>" . markdown-demote)
               ("M-z" . tmux-cc-send-current-line)
               ("C-z" . tmux-cc-send-region)
-              ("<M-RET>" . newline-at-end-of-line)
+              ("<M-RET>" . crux-smart-open-line)
               ("M-n" . next-line)
               ("M-p" . previous-line)))
 
