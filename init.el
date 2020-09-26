@@ -884,5 +884,14 @@
   (global-set-key (kbd "C-o") 'crux-smart-open-line-above)
   (global-set-key (kbd "<f5>") 'crux-find-user-init-file))
 
+;; ace-jump-zap
+(use-package ace-jump-zap)
+
+;; avy-zap
+(use-package avy-zap
+  :bind
+  ("M-z" . avy-zap-to-char-dwim)
+  ("C-M-z" . avy-zap-to-char-dwim))
+
 ;; END
 (no-load-path-done)
