@@ -887,11 +887,22 @@
 ;; ace-jump-zap
 (use-package ace-jump-zap)
 
+;; zop-to-char
+(use-package zop-to-char)
+
 ;; avy-zap
 (use-package avy-zap
   :bind
   ("M-z" . avy-zap-to-char-dwim)
   ("C-M-z" . avy-zap-to-char-dwim))
+
+;; string-inflection
+(use-package string-inflection
+  :bind
+  ("M-u" . string-inflection-python-style-cycle))
+
+;; quickrun
+(use-package quickrun)
 
 ;; END
 (no-load-path-done)
