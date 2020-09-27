@@ -905,13 +905,13 @@
 (use-package quickrun)
 
 ;; wgrep
-(use-package wgrep)
+;; (use-package wgrep)
 
 ;; diredfl
 ;; (use-package diredfl)
 
 ;; dired-sidebar
-(use-package dired-sidebar)
+;; (use-package dired-sidebar)
 
 ;; ibuffer-sidebar
 ;; (use-package ibuffer-sidebar)
