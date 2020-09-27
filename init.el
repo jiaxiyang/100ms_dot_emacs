@@ -904,5 +904,8 @@
 ;; quickrun
 (use-package quickrun)
 
+;; wgrep
+(use-package wgrep)
+
 ;; END
 (no-load-path-done)
