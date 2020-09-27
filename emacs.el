@@ -28,10 +28,12 @@
 (global-set-key (kbd "M-SPC") 'scroll-up-command)
 (global-unset-key [C-down-mouse-1])
 
+(define-key ctl-x-map "\C-j" 'dired-jump)
+(global-set-key (kbd "M-0") 'delete-window)
 (global-set-key (kbd "M-1") 'delete-other-windows)
 (global-set-key (kbd "M-2") 'split-window-below)
 (global-set-key (kbd "M-3") 'split-window-right)
-(global-set-key (kbd "M-4") 'dired-other-window)
+(global-set-key (kbd "M-4") 'dired-jump-other-window)
 (global-set-key (kbd "M-7") 'scroll-other-window)
 (global-set-key (kbd "M-8") 'scroll-other-window-down)
 (global-set-key (kbd "<f9>") 'scroll-other-window)
