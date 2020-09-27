@@ -916,5 +916,13 @@
 ;; ibuffer-sidebar
 ;; (use-package ibuffer-sidebar)
 
+;; smooth-scrolling
+(use-package smooth-scrolling)
+
+;; yascroll
+(use-package yascroll
+  :config
+  (global-yascroll-bar-mode 1))
+
 ;; END
 (no-load-path-done)

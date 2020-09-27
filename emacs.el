@@ -96,11 +96,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- ;; `(ace-jump-face-foreground
-     ;; ((t (:foreground ,"#cd0000" :background , "#2F2F2F" :inverse-video nil))))
  '(font-lock-function-name-face ((t (:foreground "brightcyan"))))
  '(hl-line ((t (:background "#3e4446"))))
- '(region ((t (:background "#4F6F4F")))))
+ '(region ((t (:background "#4F6F4F"))))
+ '(yascroll:thumb-text-area ((t (:background "#6c6c6c")))))
 
 ;; useful functions
 (defun reload-emacs()
