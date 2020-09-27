@@ -19,6 +19,7 @@
 ;; (display-time-mode 1)
 
 ;; key-bind
+(global-set-key (kbd "C-M-/") 'undo-tree-redo)
 (global-set-key "\M-;" 'set-mark-command)
 (global-set-key "\M-m" 'pop-to-mark-command)
 ;; (global-set-key "\M-m" 'pop-global-mark)
