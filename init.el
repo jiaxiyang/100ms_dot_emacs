@@ -924,5 +924,15 @@
   :config
   (global-yascroll-bar-mode 1))
 
+;; command-log-mode
+(use-package command-log-mode
+  :config
+  (command-log-mode 1)
+  (global-command-log-mode 1))
+
+;; calfw
+(use-package calfw-org)
+
+
 ;; END
 (no-load-path-done)
