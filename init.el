@@ -933,6 +933,13 @@
 ;; calfw
 (use-package calfw-org)
 
+;; org-mode
+(use-package org
+  :config
+  :bind
+  ("C-M-j" . org-meta-return)
+  ("M-RET" . org-meta-return))
+
 
 ;; END
 (no-load-path-done)
