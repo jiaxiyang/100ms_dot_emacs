@@ -937,6 +937,10 @@
 ;; org-download
 (use-package org-download)
 
+;; grip-mode
+(use-package grip-mode)
+;;  :hook ((markdown-mode org-mode) . grip-mode))
+
 ;; calfw
 (use-package calfw)
 (use-package calfw-org)
