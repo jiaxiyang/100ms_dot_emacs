@@ -1,6 +1,7 @@
 (load "~/.emacs.d/init.elc")
 
 ;; basic confi
+(set-frame-parameter nil 'alpha 0.945)
 (set-default-font "Consolas 14")
 (setq gc-cons-threshold most-positive-fixnum)
 (setq make-backup-files nil)
