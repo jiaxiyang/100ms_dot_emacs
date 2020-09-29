@@ -3,6 +3,7 @@
 ;; basic confi
 (set-frame-parameter nil 'alpha 0.955)
 (set-default-font "Consolas 14")
+;; (set-frame-font "Consolas 14") ;; for 27.1xs
 (setq gc-cons-threshold most-positive-fixnum)
 (setq make-backup-files nil)
 (setq split-width-threshold 0)
