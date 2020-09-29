@@ -936,12 +936,12 @@
 (use-package calfw-org)
 
 ;; org-mode
-(use-package org
-  :config
-  :bind (:map org-mode-map
-              (("M-h" . awesome-tab-backward-tab)
-              ("C-M-j" . org-meta-return)
-              ("M-RET" . org-meta-return))))
+;; (use-package org
+;;   :config
+;;   :bind (:map org-mode-map
+;;               (("M-h" . awesome-tab-backward-tab)
+;;               ("C-M-j" . org-meta-return)
+;;               ("M-RET" . org-meta-return))))
 
 ;; END
 (no-load-path-done)
