@@ -759,6 +759,7 @@
   :functions (awesome-tab-mode)
   :defines (awesome-tab-terminal-dark-select-background-color awesome-tab-terminal-dark-select-foreground-color)
   :config
+  (setq awesome-tab-height 150)
   (setq frame-background-mode 'dark)
   ;; (setq awesome-tab-terminal-dark-select-background-color "#e5e5e5")
   (setq awesome-tab-terminal-dark-select-foreground-color "#FFFFFF")
