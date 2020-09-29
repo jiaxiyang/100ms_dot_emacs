@@ -923,14 +923,19 @@
 
 ;; yascroll
 (use-package yascroll
+  :defer 1
   :config
   (global-yascroll-bar-mode 1))
 
 ;; command-log-mode
 (use-package command-log-mode
+  :defer 2
   :config
   (command-log-mode 1)
   (global-command-log-mode 1))
+
+;; org-download
+(use-package org-download)
 
 ;; calfw
 (use-package calfw)
