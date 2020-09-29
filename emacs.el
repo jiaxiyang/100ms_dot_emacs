@@ -1,6 +1,7 @@
 (load "~/.emacs.d/init.elc")
 
-;; var config
+;; basic confi
+(set-default-font "Consolas 14")
 (setq gc-cons-threshold most-positive-fixnum)
 (setq make-backup-files nil)
 (setq split-width-threshold 0)
