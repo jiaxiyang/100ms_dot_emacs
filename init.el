@@ -184,6 +184,7 @@
   :functions (projectile-discover-projects-in-directory)
   :bind-keymap ("C-x p" . projectile-command-map)
   :config
+  (projectile-mode 1)
   (projectile-discover-projects-in-directory (getenv "PWD"))
   (setq projectile-completion-system 'ivy))
 
@@ -931,15 +932,16 @@
   (global-command-log-mode 1))
 
 ;; calfw
+(use-package calfw)
 (use-package calfw-org)
 
 ;; org-mode
 (use-package org
   :config
-  :bind
-  ("C-M-j" . org-meta-return)
-  ("M-RET" . org-meta-return))
-
+  :bind (:map org-mode-map
+              (("M-h" . awesome-tab-backward-tab)
+              ("C-M-j" . org-meta-return)
+              ("M-RET" . org-meta-return))))
 
 ;; END
 (no-load-path-done)
