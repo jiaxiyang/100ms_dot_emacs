@@ -45,6 +45,10 @@
 (global-set-key (kbd "<f9>") 'scroll-other-window)
 (global-set-key (kbd "<f10>") 'scroll-other-window-down)
 
+(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c c") 'org-capture)
+
 ;; ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (setq ibuffer-saved-filter-groups
@@ -80,6 +84,8 @@
 ;; put `export TERM=xterm-256color` in .bashrc or .zshrc
 (add-to-list 'custom-theme-load-path
              "~/.emacs.d/straight/build/zenburn-theme")
+(setq zenburn-scale-org-headlines t)
+(setq zenburn-scale-outline-headlines t)
 (load-theme 'zenburn t)
 
 ;; solarized
