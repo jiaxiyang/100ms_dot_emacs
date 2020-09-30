@@ -238,9 +238,9 @@
   (setq company-tooltip-limit           20)
   (setq company-dabbrev-downcase        nil)
   :bind (:map prog-mode-map
-              ("C-r" . company-complete))
-  :bind (:map org-mode-map
               ("C-r" . company-complete)))
+  ;;:bind (:map org-mode-map
+  ;;            ("C-r" . company-complete)))
 
 
 ;; == company-irony
