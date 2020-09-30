@@ -35,6 +35,8 @@
 (global-set-key "\M-p" 'previous-line)
 (global-set-key (kbd "M-SPC") 'scroll-up-command)
 (global-unset-key [C-down-mouse-1])
+(global-set-key (kbd "S-<mouse-3>") 'clipboard-yank)
+(global-set-key (kbd "S-<mouse-2>") 'clipboard-yank)
 
 (define-key ctl-x-map "\C-j" 'dired-jump)
 (global-set-key (kbd "M-0") 'delete-window)
