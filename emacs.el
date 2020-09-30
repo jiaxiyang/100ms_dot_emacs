@@ -54,6 +54,7 @@
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)
+;; reference https://orgmode.org/worg/org-faq.html
 (add-hook 'org-mode-hook
           (lambda ()
             (local-set-key (kbd "M-h") #'awesome-tab-backward-tab)
