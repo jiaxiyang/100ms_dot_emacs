@@ -46,7 +46,7 @@
 ;; == xt-mouse
 (use-package xt-mouse
   :straight (xt-mouse :type built-in)
-  :when (not (display-graphic-p))
+  ;; :when (not (display-graphic-p))
   :defer 2
   :config (xterm-mouse-mode 1)
   (require 'mwheel))

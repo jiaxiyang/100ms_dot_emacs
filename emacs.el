@@ -13,6 +13,8 @@
 (setq split-height-threshold nil)
 (setq scroll-step 1)
 (setq set-mark-command-repeat-pop t)
+(setq x-select-enable-clipboard t)
+(setq mouse-drag-copy-region t)
 
 ;; mode config
 (global-undo-tree-mode 1)
