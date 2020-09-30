@@ -217,7 +217,7 @@
 
 ;; == company
 (use-package company
-  :after (prog-mode)
+  :after (:any prog-mode org-mode)
   :diminish (company-mode . "C")
   :defines (
             company-active-map
@@ -227,6 +227,7 @@
             company-tooltip-limit
             company-dabbrev-downcase)
   :hook (prog-mode . company-mode)
+  :hook (org-mode . company-mode)
   :bind (:map company-active-map
               (("C-n" . company-select-next)
                ("C-p" . company-select-previous)))
@@ -237,7 +238,10 @@
   (setq company-tooltip-limit           20)
   (setq company-dabbrev-downcase        nil)
   :bind (:map prog-mode-map
+              ("C-r" . company-complete))
+  :bind (:map org-mode-map
               ("C-r" . company-complete)))
+
 
 ;; == company-irony
 (use-package company-irony
