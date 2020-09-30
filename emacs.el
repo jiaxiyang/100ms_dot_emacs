@@ -55,10 +55,9 @@
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)
 (add-hook 'org-mode-hook
-          (lambda () (local-set-key (kbd "M-h")
-                                    #'awesome-tab-backward-tab)
+          (lambda ()
+            (local-set-key (kbd "M-h") #'awesome-tab-backward-tab)
             (local-set-key (kbd "C-M-j") #'org-meta-return)))
-
 ;; ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (setq ibuffer-saved-filter-groups
