@@ -3,6 +3,9 @@
 ;; basic confi
 (set-frame-parameter nil 'alpha 0.955)
 (set-default-font "Consolas 14")
+(add-to-list 'default-frame-alist '(fullscreen . maximized))
+;; (add-hook 'after-init-hook #'(lambda ()
+			       ;; (toggle-frame-fullscreen)))
 ;; (set-frame-font "Consolas 14") ;; for 27.1xs
 (setq gc-cons-threshold most-positive-fixnum)
 (setq make-backup-files nil)
