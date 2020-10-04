@@ -2,11 +2,16 @@
 
 ;; basic confi
 (set-frame-parameter nil 'alpha 0.955)
-(set-default-font "Consolas 14")
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 ;; (add-hook 'after-init-hook #'(lambda ()
 			       ;; (toggle-frame-fullscreen)))
+(set-default-font "Consolas 14")
 ;; (set-frame-font "Consolas 14") ;; for 27.1xs
+;; (set-frame-font "Source Code Pro 14")
+(when (eq window-system 'w32)
+  (dolist (charset '(kana han cjk-misc bopomofo))
+    (set-fontset-font (frame-parameter nil 'font) charset
+                      (font-spec :family "微软雅黑"))))
 (setq gc-cons-threshold most-positive-fixnum)
 (setq make-backup-files nil)
 (setq split-width-threshold 0)

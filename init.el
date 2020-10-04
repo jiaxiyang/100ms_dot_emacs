@@ -949,6 +949,11 @@
 (use-package calfw)
 (use-package calfw-org)
 
+;; cnfonts
+;; (use-package cnfonts
+  ;; :config
+  ;; (cnfonts-enable))
+
 ;; org-mode
 ;; (use-package org
 ;;   :config
