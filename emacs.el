@@ -5,8 +5,10 @@
 (add-to-list 'default-frame-alist '(fullscreen . maximized))
 ;; (add-hook 'after-init-hook #'(lambda ()
 			       ;; (toggle-frame-fullscreen)))
-(set-default-font "Consolas 14")
-;; (set-frame-font "Consolas 14") ;; for 27.1xs
+(when (version< emacs-version "27.0")
+  (set-default-font "Consolas 14"))
+(when (version< "26.9" emacs-version)
+  (set-frame-font "Consolas 14"))
 ;; (set-frame-font "Source Code Pro 14")
 (when (eq window-system 'w32)
   (dolist (charset '(kana han cjk-misc bopomofo))
