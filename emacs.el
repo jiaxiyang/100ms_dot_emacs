@@ -11,11 +11,6 @@
   (set-frame-font "Consolas 14"))
 ;; (set-frame-font "Source Code Pro 14")
 (when (eq window-system 'w32)
-  (set-face-attribute 'org-table nil
-                                :fontset (create-fontset-from-fontset-spec
-                                          (concat "-*-*-*-*-*--*-*-*-*-*-*-fontset-orgtable"
-                                                  ",han:等距更纱黑体 SC:size=24"
-                                                  ",latin:Consolas")))
   (dolist (charset '(kana han cjk-misc bopomofo))
     (set-fontset-font (frame-parameter nil 'font) charset
                       (font-spec :family "等距更纱黑体 SC"))))
@@ -72,9 +67,23 @@
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)
+
+(defun org-table-aligned()
+  "org table aligned"
+  (interactive)
+  ;; (set-face-attribute 'org-table nil :family "等距更纱黑体 SC")
+  (set-face-attribute 'org-table nil
+                      :family "等距更纱黑体 SC"
+                      :fontset (create-fontset-from-fontset-spec
+                                (concat "-*-*-*-*-*--*-*-*-*-*-*-fontset-orgtable"
+                                        ",han:等距更纱黑体 SC:size=24"
+                                        ",latin:Consolas"))))
+
 ;; reference https://orgmode.org/worg/org-faq.html
 (add-hook 'org-mode-hook
           (lambda ()
+            (when (eq window-system 'w32)
+              (org-table-aligned))
             (local-set-key (kbd "M-h") #'awesome-tab-backward-tab)
             (local-set-key (kbd "C-M-j") #'org-meta-return)))
 (setq org-startup-folded nil)
