@@ -11,9 +11,16 @@
   (set-frame-font "Consolas 14"))
 ;; (set-frame-font "Source Code Pro 14")
 (when (eq window-system 'w32)
+  (set-face-attribute 'org-table nil
+                                :fontset (create-fontset-from-fontset-spec
+                                          (concat "-*-*-*-*-*--*-*-*-*-*-*-fontset-orgtable"
+                                                  ",han:等距更纱黑体 SC:size=24"
+                                                  ",latin:Consolas")))
   (dolist (charset '(kana han cjk-misc bopomofo))
     (set-fontset-font (frame-parameter nil 'font) charset
-                      (font-spec :family "微软雅黑"))))
+                      (font-spec :family "等距更纱黑体 SC"))))
+                      ;; (font-spec :family "微软雅黑"))))
+
 (setq gc-cons-threshold most-positive-fixnum)
 (setq make-backup-files nil)
 (setq split-width-threshold 0)
@@ -71,6 +78,7 @@
             (local-set-key (kbd "M-h") #'awesome-tab-backward-tab)
             (local-set-key (kbd "C-M-j") #'org-meta-return)))
 (setq org-startup-folded nil)
+(setq org-agenda-files '("~/org"))
 
 ;; ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
