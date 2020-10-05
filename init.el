@@ -965,5 +965,8 @@
 ;;               ("C-M-j" . org-meta-return)
 ;;               ("M-RET" . org-meta-return))))
 
+;; pdf-tools
+(use-package pdf-tools)
+
 ;; END
 (no-load-path-done)
