@@ -25,6 +25,7 @@
 (setq set-mark-command-repeat-pop t)
 (setq x-select-enable-clipboard t)
 (setq mouse-drag-copy-region t)
+(setq calendar-holidays nil)
 
 ;; mode config
 (global-undo-tree-mode 1)
@@ -140,3 +141,9 @@
   (interactive)
   (load-file "~/.emacs"))
 (global-set-key (kbd "<f6>") 'reload-emacs)
+
+(defun calfw-org-mode()
+  "Open calfw org"
+  (interactive)
+  (load-file "~/.emacs.d/straight/build/calfw-org/calfw-org.el")
+  (cfw:open-org-calendar))

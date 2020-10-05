@@ -949,6 +949,9 @@
 (use-package calfw)
 (use-package calfw-org)
 
+;; cal-china-x
+(use-package cal-china-x)
+
 ;; cnfonts
 ;; (use-package cnfonts
   ;; :config
