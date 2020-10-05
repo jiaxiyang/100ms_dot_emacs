@@ -87,7 +87,10 @@
             (local-set-key (kbd "M-h") #'awesome-tab-backward-tab)
             (local-set-key (kbd "C-M-j") #'org-meta-return)))
 (setq org-startup-folded nil)
-(setq org-agenda-files '("~/org"))
+;; (setq org-agenda-files (list "~/org"
+                             ;; "~/org/business_manage/national_exam.org"))
+(setq org-agenda-files '("~/org"
+                         "~/org/business_manage/national_exam.org"))
 
 ;; ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
@@ -147,7 +150,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(font-lock-function-name-face ((t (:foreground "brightcyan"))))
+ ;; '(font-lock-function-name-face ((t (:foreground "brightcyan"))))
  '(hl-line ((t (:background "#3e4446"))))
  '(region ((t (:background "#4F6F4F"))))
  '(yascroll:thumb-text-area ((t (:background "#6c6c6c")))))
