@@ -89,8 +89,10 @@
               (org-table-aligned))
             (local-set-key (kbd "M-h") #'awesome-tab-backward-tab)
             (local-set-key (kbd "C-M-j") #'org-meta-return)))
+(setq-default org-agenda-clockreport-parameter-plist '(:link t :maxlevel 3))
 (setq org-startup-folded nil
       org-agenda-span 'day
+      org-agenda-window-setup 'current-window
       org-agenda-start-on-weekday nil)
 (setq org-agenda-inhibit-startup t) ;; ~50x speedup
 (setq org-agenda-use-tag-inheritance nil) ;; 3-4x speedup
