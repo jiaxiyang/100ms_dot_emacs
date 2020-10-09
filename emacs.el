@@ -90,6 +90,7 @@
             (local-set-key (kbd "M-h") #'awesome-tab-backward-tab)
             (local-set-key (kbd "C-M-j") #'org-meta-return)))
 (setq org-startup-folded nil
+      org-agenda-span 'day
       org-agenda-start-on-weekday nil)
 ;; (setq org-agenda-files (list "~/org"
                              ;; "~/org/business_manage/national_exam.org"))
