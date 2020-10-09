@@ -92,6 +92,8 @@
 (setq org-startup-folded nil
       org-agenda-span 'day
       org-agenda-start-on-weekday nil)
+(setq org-agenda-inhibit-startup t) ;; ~50x speedup
+(setq org-agenda-use-tag-inheritance nil) ;; 3-4x speedup
 ;; (setq org-agenda-files (list "~/org"
                              ;; "~/org/business_manage/national_exam.org"))
 (setq org-directory "~/org")
