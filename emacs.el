@@ -28,6 +28,7 @@
 (setq x-select-enable-clipboard t)
 (setq mouse-drag-copy-region t)
 (setq calendar-holidays nil)
+(setq inhibit-compacting-font-caches t)
 
 ;; mode config
 (global-undo-tree-mode 1)
