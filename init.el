@@ -941,13 +941,18 @@
 ;; org-download
 (use-package org-download)
 
-;; grip-mode
+;; grip-mode note: cp /usr/bin/grip to /usr/bin/grip.exe on windows10
 (use-package grip-mode)
+;;  :config
+;;  (setq grip-binary-path "grip")
 ;;  :hook ((markdown-mode org-mode) . grip-mode))
 
 ;; calfw
 (use-package calfw)
 (use-package calfw-org)
+
+;; org-pomodoro
+(use-package org-pomodoro)
 
 ;; cal-china-x
 (use-package cal-china-x)
@@ -965,8 +970,13 @@
 ;;               ("C-M-j" . org-meta-return)
 ;;               ("M-RET" . org-meta-return))))
 
-;; pdf-tools
-(use-package pdf-tools)
+;; pdf-tools note: use pdf-tools-install command to install
+(use-package pdf-tools
+  :mode ("\\.pdf\\'" . pdf-view-mode)
+  :config
+  (pdf-tools-install)
+  (setq-default pdf-view-display-size 'fit-page)
+  (setq pdf-annot-activate-created-annotations t))
 
 ;; END
 (no-load-path-done)

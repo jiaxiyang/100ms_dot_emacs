@@ -64,6 +64,8 @@
 (global-set-key (kbd "<f9>") 'scroll-other-window)
 (global-set-key (kbd "<f10>") 'scroll-other-window-down)
 
+
+;; org mode
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)
@@ -89,9 +91,10 @@
 (setq org-startup-folded nil)
 ;; (setq org-agenda-files (list "~/org"
                              ;; "~/org/business_manage/national_exam.org"))
-(setq org-agenda-files '("~/org"
-                         "~/org/business_manage/national_exam.org"))
-
+(setq org-directory "~/org")
+(setq org-default-notes-file (concat org-directory "/notes.org"))
+(setq org-agenda-files '("~/org/gtd.org"
+                         "~/org/.notes.org"))
 ;; ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (setq ibuffer-saved-filter-groups
@@ -152,6 +155,7 @@
  ;; If there is more than one, they won't work right.
  ;; '(font-lock-function-name-face ((t (:foreground "brightcyan"))))
  '(hl-line ((t (:background "#3e4446"))))
+ '(cfw:face-today-title ((t :background "#7f9f7f" :weight bold)))
  '(region ((t (:background "#4F6F4F"))))
  '(yascroll:thumb-text-area ((t (:background "#6c6c6c")))))
 
