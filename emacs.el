@@ -88,13 +88,22 @@
               (org-table-aligned))
             (local-set-key (kbd "M-h") #'awesome-tab-backward-tab)
             (local-set-key (kbd "C-M-j") #'org-meta-return)))
-(setq org-startup-folded nil)
+(setq org-startup-folded nil
+      org-agenda-start-on-weekday nil)
 ;; (setq org-agenda-files (list "~/org"
                              ;; "~/org/business_manage/national_exam.org"))
 (setq org-directory "~/org")
 (setq org-default-notes-file (concat org-directory "/notes.org"))
 (setq org-agenda-files '("~/org/gtd.org"
+			 "~/org/daily.org"
+			 "~/org/ideas.org"
                          "~/org/.notes.org"))
+(setq org-capture-templates
+      '(("t" "Todo" entry (file+headline "~/org/gtd.org" "Tasks")
+         "* TODO %?\n %i\n %a")
+        ("d" "Daily" entry (file+datetree "~/org/daily.org")
+         "* %?\n")))
+
 ;; ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (setq ibuffer-saved-filter-groups
