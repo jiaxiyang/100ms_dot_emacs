@@ -109,6 +109,16 @@
          "* TODO %?\n %i\n %a")
         ("d" "Daily" entry (file+datetree "~/org/daily.org")
          "* %?\n")))
+(setq org-highest-priority ?A)
+(setq org-lowest-priority  ?D)
+(setq org-default-priority ?D)
+(setq org-priority-faces
+      '((?A . (:background "red" :foreground "white" :weight bold))
+        (?B . (:background "DarkOrange" :foreground "white" :weight bold))
+        (?C . (:background "yellow" :foreground "DarkGreen" :weight bold))
+        (?D . (:background "DodgerBlue" :foreground "black" :weight bold))
+        ))
+
 
 ;; ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
