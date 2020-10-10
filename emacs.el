@@ -90,7 +90,7 @@
             (local-set-key (kbd "M-h") #'awesome-tab-backward-tab)
             (local-set-key (kbd "C-M-j") #'org-meta-return)))
 (setq-default org-agenda-clockreport-parameter-plist '(:link t :maxlevel 3))
-(setq org-startup-folded nil
+(setq org-startup-folded t
       org-agenda-span 'day
       org-agenda-window-setup 'current-window
       org-agenda-start-on-weekday nil)
