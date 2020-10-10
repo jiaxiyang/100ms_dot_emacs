@@ -118,7 +118,14 @@
         (?C . (:background "yellow" :foreground "DarkGreen" :weight bold))
         (?D . (:background "DodgerBlue" :foreground "black" :weight bold))
         ))
-
+(setq org-todo-keywords
+      '((sequence "TODO(t)" "|" "DONE(d)")
+        (sequence "|" "CANCELED(c)")))
+(setq org-todo-keyword-faces '(
+                               ("TODO" . org-warning)
+                               ("DONE" . "green")
+                               ("CANCELED" . "grey")
+                               ))
 
 ;; ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
