@@ -102,8 +102,8 @@
 (setq org-default-notes-file (concat org-directory "/notes.org"))
 (setq org-agenda-files '("~/org/gtd.org"
 			 "~/org/daily.org"
-			 "~/org/ideas.org"
-                         "~/org/.notes.org"))
+			 "~/org/weekly.org"
+			 "~/org/ideas.org"))
 (setq org-capture-templates
       '(("t" "Todo" entry (file+headline "~/org/gtd.org" "Tasks")
          "* TODO %?\n %i\n %a")
@@ -122,8 +122,8 @@
       '((sequence "TODO(t)" "|" "DONE(d)")
         (sequence "|" "CANCELED(c)")))
 (setq org-todo-keyword-faces '(
-                               ("TODO" . org-warning)
-                               ("DONE" . "green")
+                               ;; ("TODO" . org-warning)
+                               ;; ("DONE" . "green")
                                ("CANCELED" . "grey")
                                ))
 
@@ -180,16 +180,7 @@
 ;; use list-face-display set in .emacs and copy to emacs.el
 (global-hl-line-mode 1)
 ;; (setq cursor-type 'bar)
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- ;; '(font-lock-function-name-face ((t (:foreground "brightcyan"))))
- '(hl-line ((t (:background "#3e4446"))))
- '(cfw:face-today-title ((t :background "#7f9f7f" :weight bold)))
- '(region ((t (:background "#4F6F4F"))))
- '(yascroll:thumb-text-area ((t (:background "#6c6c6c")))))
+
 
 ;; useful functions
 (defun reload-emacs()
@@ -203,3 +194,24 @@
   (interactive)
   (load-file "~/.emacs.d/straight/build/calfw-org/calfw-org.el")
   (cfw:open-org-calendar))
+
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(org-habit-show-habits-only-for-today nil)
+ '(org-modules
+   '(ol-bbdb ol-bibtex ol-docview ol-eww ol-gnus org-habit ol-info
+             ol-irc ol-mhe ol-rmail ol-w3m)))
+
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ ;; '(font-lock-function-name-face ((t (:foreground "brightcyan"))))
+ '(hl-line ((t (:background "#3e4446"))))
+ '(cfw:face-today-title ((t :background "#7f9f7f" :weight bold)))
+ '(region ((t (:background "#4F6F4F"))))
+ '(yascroll:thumb-text-area ((t (:background "#6c6c6c")))))

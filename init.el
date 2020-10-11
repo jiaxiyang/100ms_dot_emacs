@@ -777,11 +777,6 @@
   (global-set-key (kbd "M-l") 'awesome-tab-forward-tab)
 
   (defhydra awesome-fast-switch (global-map "M-j")
-    "
-     ^_k_^   prev group    | _C-a_^^     select first | _b_ search buffer | _C-k_   kill buffer
-   _h_   _l_  switch tab   | _C-e_^^     select last  | _g_ search group  | _C-S-k_ kill others in group
-     ^_j_^   next group    | _C-j_^^     ace jump     | _C-h_  move left  | _C-l_     move right
-    "
       ("h" awesome-tab-backward-tab)
       ("j" awesome-tab-forward-group)
       ("M-j" awesome-tab-forward-group)
