@@ -119,8 +119,8 @@
         (?D . (:background "DodgerBlue" :foreground "black" :weight bold))
         ))
 (setq org-todo-keywords
-      '((sequence "TODO(t)" "|" "DONE(d)")
-        (sequence "|" "CANCELED(c)")))
+      '((sequence "TODO(t)" "|" "DONE(d)" "CANCELED(c@/!)")))
+        ;; (sequence "|" "CANCELED(c)")))
 (setq org-todo-keyword-faces '(
                                ;; ("TODO" . org-warning)
                                ;; ("DONE" . "green")
@@ -201,6 +201,7 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(org-habit-show-habits-only-for-today nil)
+ '(org-log-into-drawer t)
  '(org-modules
    '(ol-bbdb ol-bibtex ol-docview ol-eww ol-gnus org-habit ol-info
              ol-irc ol-mhe ol-rmail ol-w3m)))
