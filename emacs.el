@@ -107,8 +107,28 @@
 (setq org-capture-templates
       '(("t" "Todo" entry (file+headline "~/org/gtd.org" "Tasks")
          "* TODO %?\n %i\n %a")
-        ("d" "Daily" entry (file+datetree "~/org/daily.org")
-         "* %?\n")))
+        ("r" "Day review" entry (file+datetree "~/org/review.org")
+         "* Day review %U
+
+   |-------+------+-------+------+-------+--------------+-----|
+   | item  | work | learn | rest | state | relationship | sum |
+   |-------+------+-------+------+-------+--------------+-----|
+   | score |    %?  |       |      |       |              |     |
+   |-------+------+-------+------+-------+--------------+-----|
+   #+TBLFM: $7=vsum($2..$-1)
+
+** work [/]
+- [ ] ...
+** learn [/]
+- [ ] ...
+** rest [/]
+- [ ] ...
+** state [/]
+- [ ] ...
+** relationship [/]
+- [ ] ...
+"
+         :empty-lines 1)))
 (setq org-highest-priority ?A)
 (setq org-lowest-priority  ?D)
 (setq org-default-priority ?D)
@@ -126,6 +146,9 @@
                                ;; ("DONE" . "green")
                                ("CANCELED" . "grey")
                                ))
+(setq org-agenda-prefix-format
+      (quote
+       ((agenda . " %-10:c%?-12t% s"))))
 
 ;; ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
