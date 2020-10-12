@@ -116,8 +116,8 @@
    | score |      |       |      |       |              |     |
    |-------+------+-------+------+-------+--------------+-----|
    #+TBLFM: $7=round(vsum($2..$-1)/5)
-   
-   #+BEGIN: clocktable :scope agenda :maxlevel 3
+
+   #+BEGIN: clocktable :scope agenda-with-archives :maxlevel 3 :block today
    %?
    #+END:
 
