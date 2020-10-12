@@ -228,6 +228,13 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(org-habit-show-habits-only-for-today nil)
+ '(org-clocktable-defaults
+   (quote
+    (:maxlevel 3 :lang "en" :scope agenda :block nil :wstart 1 :mstart
+               1 :tstart nil :tend nil :step nil :stepskip0 nil
+               :fileskip0 t :tags nil :match nil :emphasize nil :link
+               nil :narrow 40! :indent t :formula nil :timestamp nil
+               :level nil :tcolumns nil :formatter nil)))
  '(org-log-into-drawer t)
  '(org-modules
    '(ol-bbdb ol-bibtex ol-docview ol-eww ol-gnus org-habit ol-info
