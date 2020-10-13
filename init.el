@@ -811,7 +811,7 @@
 (use-package imenu-list
   :defer 2
   :config
-  (setq imenu-list-size 0.2)
+  ;; (setq imenu-list-size 0.2)
   (global-set-key (kbd "C-^") #'imenu-list-smart-toggle))
 
 ;; beacon
