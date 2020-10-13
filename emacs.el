@@ -107,32 +107,60 @@
 (setq org-capture-templates
       '(("t" "Todo" entry (file+headline "~/org/gtd.org" "Tasks")
          "* TODO %?\n %i\n %a")
-        ("r" "Day review" entry (file+datetree "~/org/review.org")
-         "* Day review %U
+        ("w" "Work review" entry (file+datetree "~/org/review.org")
+         "* Work review %U
 
-   |-------+------+-------+------+-------+--------------+-----|
-   | item  | work | learn | rest | state | relationship | sum |
-   |-------+------+-------+------+-------+--------------+-----|
-   | score |      |       |      |       |              |     |
-   |-------+------+-------+------+-------+--------------+-----|
-   #+TBLFM: $7=round(vsum($2..$-1)/5)
+|-------+------+-------+------+-------+--------------+---------|
+| item  | work | learn | rest | state | relationship | average |
+|-------+------+-------+------+-------+--------------+---------|
+| score |      |       |      |       |              |         |
+|-------+------+-------+------+-------+--------------+---------|
+#+TBLFM: $7=round(vsum($2..$-1)/5)
 
-   #+BEGIN: clocktable :scope agenda-with-archives :maxlevel 3 :block today
-   %?
-   #+END:
+#+BEGIN: clocktable :scope agenda-with-archives :maxlevel 3 :block today
+%?
+#+END:
 
 ** work [/]
 - [ ] ...
 ** learn [/]
+- [ ] C++
+- [ ] AI
+- [ ] Emacs
+** relationship [/]
 - [ ] ...
-** rest [/]
-- [ ] ...
-** state [/]
-- [ ] ...
+"
+         :empty-lines 1)
+
+         ("l" "Life review" entry (file+datetree "~/org/review.org")
+         "* Life review %U
+
+|-------+-------+---------+------+-------+--------------+--------------+--------------+---------|
+| item  | learn | healthy | rest | state | relationship | life average | work average | average |
+|-------+-------+---------+------+-------+--------------+--------------+--------------+---------|
+| score |       |         |      |       |              |              |              |         |
+|-------+-------+---------+------+-------+--------------+--------------+--------------+---------|
+#+TBLFM: $7=round(vsum($2..$6)/5)::$9=round(($7+$8)/2)
+
+#+BEGIN: clocktable :scope agenda-with-archives :maxlevel 3 :block today
+%?
+#+END:
+
+** learn [/]
+- [ ] talk
+- [ ] blog
+- [ ] EQ
+- [ ] career plan
+** healthy [/]
+- [ ] run
+- [ ] walk
+- [ ] trval
+- [ ] climb
 ** relationship [/]
 - [ ] ...
 "
          :empty-lines 1)))
+
 (setq org-highest-priority ?A)
 (setq org-lowest-priority  ?D)
 (setq org-default-priority ?D)
