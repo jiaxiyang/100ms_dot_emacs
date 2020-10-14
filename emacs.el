@@ -62,9 +62,8 @@
 (global-set-key (kbd "M-4") 'dired-jump-other-window)
 (global-set-key (kbd "M-7") 'scroll-other-window)
 (global-set-key (kbd "M-8") 'scroll-other-window-down)
-(global-set-key (kbd "<f9>") 'scroll-other-window)
-(global-set-key (kbd "<f10>") 'scroll-other-window-down)
-
+(global-set-key (kbd "<f9>") 'org-clock-jump-to-current-clock)
+(global-set-key (kbd "<f12>") 'org-agenda-list)
 
 ;; org mode
 (global-set-key (kbd "C-c l") 'org-store-link)
@@ -242,7 +241,7 @@
   "Reload emacs configuration"
   (interactive)
   (load-file "~/.emacs"))
-(global-set-key (kbd "<f6>") 'reload-emacs)
+(global-set-key (kbd "M-<f5>") 'reload-emacs)
 
 (defun calfw-org-mode()
   "Open calfw org"
