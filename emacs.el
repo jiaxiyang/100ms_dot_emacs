@@ -242,6 +242,7 @@
   (interactive)
   (load-file "~/.emacs"))
 (global-set-key (kbd "M-<f5>") 'reload-emacs)
+(global-set-key (kbd "<ESC> <f5>") 'reload-emacs)
 
 (defun calfw-org-mode()
   "Open calfw org"
