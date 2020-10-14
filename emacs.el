@@ -181,6 +181,29 @@
       (quote
        ((agenda . " %-10:c%?-12t% s"))))
 
+(defun get-pic-from-url (url filename)
+  (shell-command (concat "wget -O " filename " " url)))
+(defun org-pomodoro-get-pictures ()
+  "Get pomodoro notification pictures"
+  (interactive)
+  ;; (get-pic-from-url "https://pic3.zhimg.com/e76fc9f4120b9bd6ca2a7ae03a447f19_1440w.jpg?source=172ae18b" "~/begin_short_break.jpg")
+  (get-pic-from-url
+  "https://previews.123rf.com/images/vaselena/vaselena1507/vaselena150700001/42287443-white-alarm-clock-with-red-clock-face-with-inscription-coffee-time-without-figures-on-white-backgrou.jpg"
+  "~/coffe_time.jpg")
+  (get-pic-from-url
+  "https://previews.123rf.com/images/vaselena/vaselena1510/vaselena151000045/47728782-white-alarm-clock-with-red-clock-face-with-inscription-work-time-without-figures-on-white-background.jpg"
+  "~/work_time.jpg"))
+
+(add-hook 'org-pomodoro-finished-hook
+          (lambda ()
+            (w32-shell-execute "open" "~/coffe_time.jpg")))
+(add-hook 'org-pomodoro-break-finished-hook
+          (lambda ()
+            (w32-shell-execute "open" "~/work_time.jpg")))
+(add-hook 'org-pomodoro-long-break-finished-hook
+          (lambda ()
+            (w32-shell-execute "open" "~/work_time.jpg")))
+
 ;; ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (setq ibuffer-saved-filter-groups
