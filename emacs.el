@@ -94,7 +94,11 @@
       org-agenda-window-setup 'current-window
       org-agenda-start-on-weekday nil)
 (setq org-agenda-inhibit-startup t) ;; ~50x speedup
-(setq org-agenda-use-tag-inheritance nil) ;; 3-4x speedup
+;;(setq org-agenda-use-tag-inheritance nil) ;; 3-4x speedup
+(setq org-tags-column 80)
+(add-hook 'org-agenda-mode-hook
+            (lambda () (add-hook 'window-configuration-change-hook
+                                 'org-agenda-align-tags nil t)))
 ;; (setq org-agenda-files (list "~/org"
                              ;; "~/org/business_manage/national_exam.org"))
 (setq org-directory "~/org")
