@@ -981,6 +981,13 @@
   (setq-default pdf-view-display-size 'fit-page)
   (setq pdf-annot-activate-created-annotations t))
 
+;; undo-tree
+(use-package undo-tree
+  :config
+  (global-set-key (kbd "C-M-_") 'undo-tree-redo)
+  (global-undo-tree-mode))
+
+;; valign
 (use-package valign
   :straight
   (valign :type git
