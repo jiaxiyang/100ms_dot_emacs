@@ -31,7 +31,6 @@
 (setq inhibit-compacting-font-caches t)
 
 ;; mode config
-(global-undo-tree-mode 1)
 (save-place-mode 1)
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
@@ -41,7 +40,6 @@
 ;; (display-time-mode 1)
 
 ;; key-bind
-(global-set-key (kbd "C-M-_") 'undo-tree-redo)
 (global-set-key "\M-;" 'set-mark-command)
 (global-set-key "\M-m" 'pop-to-mark-command)
 ;; (global-set-key "\M-m" 'pop-global-mark)
