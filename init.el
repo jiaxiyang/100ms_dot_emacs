@@ -993,8 +993,6 @@
   (valign :type git
           :host github
           :repo "casouri/valign")
-  :functions (valign-mode)
-  :config
-  (add-hook 'org-mode-hook #'valign-mode))
+  :functions (valign-mode))
 ;; END
 (no-load-path-done)
