@@ -981,5 +981,13 @@
   (setq-default pdf-view-display-size 'fit-page)
   (setq pdf-annot-activate-created-annotations t))
 
+(use-package valign
+  :straight
+  (valign :type git
+          :host github
+          :repo "casouri/valign")
+  :functions (valign-mode)
+  :config
+  (add-hook 'org-mode-hook #'valign-mode))
 ;; END
 (no-load-path-done)
