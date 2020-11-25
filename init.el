@@ -994,5 +994,12 @@
           :host github
           :repo "casouri/valign")
   :functions (valign-mode))
+
+;; leetcode
+(use-package leetcode
+    :config
+    (setq leetcode-directory "~/Dropbox/Leetcode/"
+          leetcode-prefer-language "cpp"))
+
 ;; END
 (no-load-path-done)
