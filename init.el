@@ -999,6 +999,7 @@
 (use-package leetcode
     :config
     (setq leetcode-directory "~/Dropbox/Leetcode/"
+	  leetcode-save-solutions t
           leetcode-prefer-language "cpp"))
 
 ;; END
