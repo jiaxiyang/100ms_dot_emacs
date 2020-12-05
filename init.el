@@ -191,6 +191,8 @@
 ;; == magit
 (use-package magit
   :bind ("C-x g" . 'magit-status))
+  ;; :config
+  ;; (add-hook 'magit-status-mode-hook 'delete-other-windows))
 
 ;; == compile
 (use-package compile
@@ -609,8 +611,12 @@
 ;; smartparens
 (use-package smartparens
   :defines (sp-autoinsert-pair sp-highlight-pair-overlay)
-  :defer 2
+  :defer 1
   :config
+  (global-set-key (kbd "C-M-w") 'sp-copy-sexp)
+  (global-set-key (kbd "M-k") 'sp-copy-sexp)
+  (global-set-key (kbd "C-M-k") 'sp-backward-kill-sexp)
+  (global-set-key (kbd "M-s") 'sp-kill-sexp)
   (setq sp-autoinsert-pair nil)
   (setq sp-highlight-pair-overlay nil)
   (smartparens-global-mode 1))
@@ -719,7 +725,7 @@
 (use-package origami
   :defer 1
   :config
-  (global-set-key (kbd "M-k") 'hydra-origami/body)
+  (global-set-key (kbd "M-r") 'hydra-origami/body)
   (global-origami-mode t)
   (defhydra hydra-origami (:color red)
   "
@@ -746,7 +752,7 @@
 (use-package symbol-overlay
   :config
   (global-set-key (kbd "M-i") 'symbol-overlay-put)
-  (global-set-key (kbd "M-r") 'symbol-overlay-remove-all)
+  (global-set-key (kbd "C-i") 'symbol-overlay-remove-all)
   (global-set-key (kbd "ESC <right>") 'symbol-overlay-switch-forward)
   (global-set-key (kbd "ESC <left>") 'symbol-overlay-switch-backward))
 
