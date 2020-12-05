@@ -812,6 +812,7 @@
 ;; ace-window
 (use-package ace-window
   :config
+  (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
   (global-set-key (kbd "M-o") 'ace-window))
 
 ;; helpful
@@ -989,6 +990,7 @@
 
 ;; undo-tree
 (use-package undo-tree
+  :defer 2
   :config
   (global-set-key (kbd "C-M-_") 'undo-tree-redo)
   (global-undo-tree-mode))
@@ -1007,6 +1009,18 @@
     (setq leetcode-directory "~/Dropbox/Leetcode/"
 	  leetcode-save-solutions t
           leetcode-prefer-language "cpp"))
+
+;; aggressive-indent
+(use-package aggressive-indent)
+;; :config
+;; (global-aggressive-indent-mode 1)
+;; (add-to-list 'aggressive-indent-excluded-modes 'html-mode))
+
+;; hl-todo NEXT TODO DONE NOTE OKAY HACK
+(use-package hl-todo
+  :defer 1
+  :config
+  (global-hl-todo-mode 1))
 
 ;; END
 (no-load-path-done)
