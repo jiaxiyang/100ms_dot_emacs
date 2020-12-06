@@ -1032,7 +1032,11 @@
 (use-package eyebrowse
   :defer 1
   :config
+  (setq eyebrowse-mode-line-style (quote current))
   (eyebrowse-mode 1))
+
+;; persp-mode
+(use-package persp-mode)
 
 ;; END
 (no-load-path-done)
