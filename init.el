@@ -1022,5 +1022,17 @@
   :config
   (global-hl-todo-mode 1))
 
+;; page-break-lines
+(use-package page-break-lines
+  :defer 1
+  :config
+  (global-page-break-lines-mode 1))
+
+;; eyebrowse: manage window config switch
+(use-package eyebrowse
+  :defer 1
+  :config
+  (eyebrowse-mode 1))
+
 ;; END
 (no-load-path-done)
