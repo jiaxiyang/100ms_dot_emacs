@@ -190,9 +190,9 @@
 
 ;; == magit
 (use-package magit
-  :bind ("C-x g" . 'magit-status))
-  ;; :config
-  ;; (add-hook 'magit-status-mode-hook 'delete-other-windows))
+  :bind ("C-x g" . 'magit-status)
+  :config
+  (setq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1))
 
 ;; == compile
 (use-package compile
