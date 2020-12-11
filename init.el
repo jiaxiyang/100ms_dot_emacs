@@ -752,7 +752,7 @@
 (use-package symbol-overlay
   :config
   (global-set-key (kbd "M-i") 'symbol-overlay-put)
-  (global-set-key (kbd "C-i") 'symbol-overlay-remove-all)
+  ;;(global-set-key (kbd "C-i") 'symbol-overlay-remove-all)
   (global-set-key (kbd "ESC <right>") 'symbol-overlay-switch-forward)
   (global-set-key (kbd "ESC <left>") 'symbol-overlay-switch-backward))
 
