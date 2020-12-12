@@ -182,9 +182,10 @@
 (use-package projectile
   :defines (projectile-completion-system projectile-command-map)
   :functions (projectile-discover-projects-in-directory)
+  :init
+  (projectile-mode +1)
   :bind-keymap ("C-x p" . projectile-command-map)
   :config
-  (projectile-mode 1)
   (projectile-discover-projects-in-directory (getenv "PWD"))
   (setq projectile-completion-system 'ivy))
 
@@ -402,7 +403,7 @@
                    :repo "jiaxiyang/leader-key-mode")
   :functions (leader-key-mode)
   ;; :defer 1
-  :config
+  :init
   (leader-key-mode))
 
 ;; == tmux-cc
