@@ -186,6 +186,9 @@
   (projectile-mode +1)
   :bind-keymap ("C-x p" . projectile-command-map)
   :config
+  (setq projectile-indexing-method 'hybrid)
+  ;; (setq projectile-sort-order 'recentf)
+  (setq projectile-sort-order 'recently-active)
   (projectile-discover-projects-in-directory (getenv "PWD"))
   (setq projectile-completion-system 'ivy))
 
@@ -391,9 +394,11 @@
 
 ;; == recentf
 (use-package recentf
-     :defines (recentf-max-saved-items)
-     :config
-     (setq recentf-max-saved-items 200))
+  :defines (recentf-max-saved-items)
+  :init
+  (recentf-mode 1)
+  :config
+  (setq recentf-max-saved-items 200))
 
 ;; == leader-key-mode
 (use-package leader-key-mode
