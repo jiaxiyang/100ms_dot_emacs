@@ -604,6 +604,8 @@
   :config
   (gcmh-mode 1))
 
+
+
 ;; ********* jiaxiyang's config ********
 (setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
                          ("melpa" . "http://melpa.milkbox.net/packages/")))
@@ -1030,8 +1032,8 @@
 
 ;; page-break-lines
 (use-package page-break-lines
-  :defer 1
-  :config
+  :init
+  ;; (setq page-break-lines-char ?=)
   (global-page-break-lines-mode 1))
 
 ;; eyebrowse: manage window config switch
@@ -1043,6 +1045,8 @@
 
 ;; persp-mode
 (use-package persp-mode)
+
+
 
 ;; END
 (no-load-path-done)
