@@ -69,6 +69,11 @@
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)
 
+;; split window and then move to the new window
+(defadvice split-window (after move-point-to-new-window activate)
+  "Moves the point to the newly created window after splitting."
+  (other-window 1))
+
 (defun org-table-aligned()
   "org table aligned"
   (interactive)
