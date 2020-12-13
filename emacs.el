@@ -38,6 +38,19 @@
 (blink-cursor-mode -1)
 (add-hook 'dired-mode-hook 'dired-hide-details-mode)
 ;; (display-time-mode 1)
+;; (desktop-save-mode 1)
+(defun sanityinc/time-subtract-millis (b a)
+  (* 1000.0 (float-time (time-subtract b a))))
+(setq desktop-path (list user-emacs-directory)
+      desktop-auto-save-timeout 600)
+(defun sanityinc/desktop-time-restore (orig &rest args)
+  (let ((start-time (current-time)))
+    (prog1
+        (apply orig args)
+      (message "Desktop restored in %.2fms"
+               (sanityinc/time-subtract-millis (current-time)
+                                               start-time)))))
+(advice-add 'desktop-read :around 'sanityinc/desktop-time-restore)
 
 ;; key-bind
 (global-set-key "\M-;" 'set-mark-command)
