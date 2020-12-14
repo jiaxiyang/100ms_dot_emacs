@@ -182,10 +182,11 @@
 (use-package projectile
   :defines (projectile-completion-system projectile-command-map)
   :functions (projectile-discover-projects-in-directory)
-  :init
-  (projectile-mode +1)
+  ;; :init
+  ;; (projectile-mode +1)
   :bind-keymap ("C-x p" . projectile-command-map)
   :config
+  (require `subr-x)
   (setq projectile-indexing-method 'hybrid)
   ;; (setq projectile-sort-order 'recentf)
   (setq projectile-sort-order 'recently-active)
