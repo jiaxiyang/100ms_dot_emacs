@@ -51,6 +51,8 @@
 (global-unset-key [S-down-mouse-1])
 (global-set-key (kbd "S-<mouse-3>") 'clipboard-yank)
 (global-set-key (kbd "S-<mouse-2>") 'clipboard-yank)
+(global-set-key (kbd "C-<mouse-4>") 'scroll-down-command)
+(global-set-key (kbd "C-<mouse-5>") 'scroll-up-command)
 
 (define-key ctl-x-map "\C-j" 'dired-jump)
 (global-set-key (kbd "M-0") 'delete-window)
