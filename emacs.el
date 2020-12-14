@@ -53,6 +53,7 @@
 (global-set-key (kbd "S-<mouse-2>") 'clipboard-yank)
 (global-set-key (kbd "C-<mouse-4>") 'scroll-down-command)
 (global-set-key (kbd "C-<mouse-5>") 'scroll-up-command)
+(global-set-key (kbd "M-s") 'sp-kill-sexp)
 
 (define-key ctl-x-map "\C-j" 'dired-jump)
 (global-set-key (kbd "M-0") 'delete-window)
@@ -341,3 +342,11 @@
                                                start-time)))))
 (advice-add 'desktop-read :around 'sanityinc/desktop-time-restore)
 
+(defun my-isearch-occur()
+  "isearch occur: delete other buffer and split right "
+  (interactive)
+  (delete-other-windows)
+  (let ((case-fold-search isearch-case-fold-search))
+    (occur (if isearch-regexp isearch-string (regexp-quote
+                                              isearch-string)))))
+(define-key isearch-mode-map (kbd "C-o") 'my-isearch-occur)
