@@ -38,19 +38,6 @@
 (blink-cursor-mode -1)
 (add-hook 'dired-mode-hook 'dired-hide-details-mode)
 ;; (display-time-mode 1)
-;; (desktop-save-mode 1)
-(defun sanityinc/time-subtract-millis (b a)
-  (* 1000.0 (float-time (time-subtract b a))))
-(setq desktop-path (list user-emacs-directory)
-      desktop-auto-save-timeout 600)
-(defun sanityinc/desktop-time-restore (orig &rest args)
-  (let ((start-time (current-time)))
-    (prog1
-        (apply orig args)
-      (message "Desktop restored in %.2fms"
-               (sanityinc/time-subtract-millis (current-time)
-                                               start-time)))))
-(advice-add 'desktop-read :around 'sanityinc/desktop-time-restore)
 
 ;; key-bind
 (global-set-key "\M-;" 'set-mark-command)
@@ -318,3 +305,37 @@
  '(cfw:face-today-title ((t :background "#7f9f7f" :weight bold)))
  '(region ((t (:background "#4F6F4F"))))
  '(yascroll:thumb-text-area ((t (:background "#6c6c6c")))))
+
+
+;; (desktop-save-mode 1)
+(setq your-own-path default-directory)
+(if (file-exists-p
+     (concat your-own-path ".emacs.desktop"))
+    (if (y-or-n-p "Read .emacs.desktop and add hook?")
+    (progn
+      (setq desktop-dirname your-own-path)
+      (desktop-read your-own-path)
+      (add-hook 'kill-emacs-hook
+            `(lambda ()
+               (desktop-save ,your-own-path t))))))
+
+(defun my-desktop-save()
+  "save desktop"
+  (interactive)
+  (desktop-save your-own-path))
+
+(defun sanityinc/time-subtract-millis (b a)
+  (* 1000.0 (float-time (time-subtract b a))))
+
+(setq desktop-path (list user-emacs-directory)
+      desktop-auto-save-timeout 600)
+
+(defun sanityinc/desktop-time-restore (orig &rest args)
+  (let ((start-time (current-time)))
+    (prog1
+        (apply orig args)
+      (message "Desktop restored in %.2fms"
+               (sanityinc/time-subtract-millis (current-time)
+                                               start-time)))))
+(advice-add 'desktop-read :around 'sanityinc/desktop-time-restore)
+
