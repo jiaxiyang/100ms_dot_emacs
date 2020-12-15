@@ -16,6 +16,8 @@
                       (font-spec :family "等距更纱黑体 SC"))))
                       ;; (font-spec :family "微软雅黑"))))
 
+
+
 (setq gc-cons-threshold most-positive-fixnum)
 (setq make-backup-files nil)
 (setq split-width-threshold 0)
@@ -62,11 +64,14 @@
 (global-set-key (kbd "M-2") 'split-window-below)
 (global-set-key (kbd "M-3") 'split-window-right)
 (global-set-key (kbd "M-4") 'dired-jump-other-window)
-(global-set-key (kbd "M-7") 'scroll-other-window)
-(global-set-key (kbd "M-8") 'scroll-other-window-down)
+(global-set-key (kbd "M-7") 'delete-other-windows)
+(global-set-key (kbd "M-8") 'delete-windows)
+;; (global-set-key (kbd "M-8") 'scroll-other-window-down)
+(global-set-key (kbd "<f8>") 'xah-make-backup)
 (global-set-key (kbd "<f9>") 'org-clock-jump-to-current-clock)
 (global-set-key (kbd "<f12>") 'org-agenda-list)
 
+
 ;; org mode
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c a") 'org-agenda)
@@ -210,7 +215,7 @@
 (add-hook 'org-pomodoro-long-break-finished-hook
           (lambda ()
             (w32-shell-execute "open" "~/work_time.jpg")))
-
+
 ;; ibuffer
 (global-set-key (kbd "C-x C-b") 'ibuffer)
 (setq ibuffer-saved-filter-groups
@@ -265,7 +270,7 @@
 (global-hl-line-mode 1)
 ;; (setq cursor-type 'bar)
 
-
+
 ;; useful functions
 (defun reload-emacs()
   "Reload emacs configuration"
@@ -280,6 +285,7 @@
   (load-file "~/.emacs.d/straight/build/calfw-org/calfw-org.el")
   (cfw:open-org-calendar))
 
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -309,7 +315,7 @@
  '(region ((t (:background "#4F6F4F"))))
  '(yascroll:thumb-text-area ((t (:background "#6c6c6c")))))
 
-
+
 ;; (desktop-save-mode 1)
 (setq your-own-path default-directory)
 (if (file-exists-p
@@ -350,3 +356,64 @@
     (occur (if isearch-regexp isearch-string (regexp-quote
                                               isearch-string)))))
 (define-key isearch-mode-map (kbd "C-o") 'my-isearch-occur)
+
+(defun xah-make-backup ()
+  "Make a backup copy of current file or dired marked files.
+If in dired, backup current file or marked files.
+The backup file name is in this format
+ x.html~2018-05-15_133429~
+ The last part is hour, minutes, seconds.
+in the same dir. If such a file already exist, it's overwritten.
+If the current buffer is not associated with a file, nothing's done.
+
+URL `http://ergoemacs.org/emacs/elisp_make-backup.html'
+Version 2018-05-15"
+  (interactive)
+  (let (($fname (buffer-file-name))
+        ($date-time-format "%Y-%m-%d_%H%M%S"))
+    (if $fname
+        (let (($backup-name
+               (concat $fname "~" (format-time-string $date-time-format) "~")))
+          (copy-file $fname $backup-name t)
+          (message (concat "Backup saved at: " $backup-name)))
+      (if (string-equal major-mode "dired-mode")
+          (progn
+            (mapc (lambda ($x)
+                    (let (($backup-name
+                           (concat $x "~" (format-time-string $date-time-format) "~")))
+                      (copy-file $x $backup-name t)))
+                  (dired-get-marked-files))
+            (message "marked files backed up"))
+        (user-error "buffer not file nor dired")))))
+
+
+(defun xah-copy-file-path (&optional @dir-path-only-p)
+  "Copy the current buffer's file path or dired path to `kill-ring'.
+Result is full path.
+If `universal-argument' is called first, copy only the dir path.
+
+If in dired, copy the file/dir cursor is on, or marked files.
+
+If a buffer is not file and not dired, copy value of `default-directory' (which is usually the “current” dir when that buffer was created)
+
+ `http://ergoemacs.org/emacs/emacs_copy_file_path.html'
+Version 2017-09-01"
+  (interactive "P")
+  (let (($fpath
+         (if (string-equal major-mode 'dired-mode)
+             (progn
+               (let (($result (mapconcat 'identity (dired-get-marked-files) "\n")))
+                 (if (equal (length $result) 0)
+                     (progn default-directory )
+                   (progn $result))))
+           (if (buffer-file-name)
+               (buffer-file-name)
+             (expand-file-name default-directory)))))
+    (kill-new
+     (if @dir-path-only-p
+         (progn
+           (message "Directory path copied: 「%s」" (file-name-directory $fpath))
+           (file-name-directory $fpath))
+       (progn
+         (message "File path copied: 「%s」" $fpath)
+         $fpath )))))
