@@ -65,6 +65,7 @@
 (global-set-key (kbd "M-2") 'split-window-below)
 (global-set-key (kbd "M-3") 'split-window-right)
 (global-set-key (kbd "M-4") 'dired-jump-other-window)
+(global-set-key (kbd "M-5") 'undo-tree-redo)
 (global-set-key (kbd "M-7") 'delete-other-windows)
 (global-set-key (kbd "M-8") 'delete-window)
 ;; (global-set-key (kbd "M-8") 'scroll-other-window-down)
