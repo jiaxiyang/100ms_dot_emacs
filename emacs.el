@@ -62,8 +62,8 @@
 (global-set-key (kbd "M-0") 'delete-window)
 ;; cancel for right thumb pain
 (global-set-key (kbd "M-1") 'delete-other-windows)
-(global-set-key (kbd "M-2") 'split-window-below)
-(global-set-key (kbd "M-3") 'split-window-right)
+(global-set-key (kbd "M-2") 'my-split-window-below)
+(global-set-key (kbd "M-3") 'my-split-window-right)
 (global-set-key (kbd "M-4") 'dired-jump-other-window)
 (global-set-key (kbd "M-5") 'undo-tree-redo)
 (global-set-key (kbd "M-7") 'delete-other-windows)
@@ -419,3 +419,26 @@ Version 2017-09-01"
        (progn
          (message "File path copied: 「%s」" $fpath)
          $fpath )))))
+
+(defun my-split-window-right()
+  "window split right "
+  (interactive)
+  (interactive)
+  (split-window-right)
+  (let
+      ((target-window
+        (next-window)))
+    (set-window-buffer target-window
+                       (other-buffer))
+    (select-window target-window)))
+
+(defun my-split-window-below()
+  "window split below "
+  (interactive)
+  (split-window-below)
+  (let
+      ((target-window
+        (next-window)))
+    (set-window-buffer target-window
+                       (other-buffer))
+    (select-window target-window)))
