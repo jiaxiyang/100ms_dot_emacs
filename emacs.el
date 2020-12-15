@@ -19,10 +19,11 @@
 
 
 (setq gc-cons-threshold most-positive-fixnum)
-(setq make-backup-files nil)
+(setq make-backup-files nil
+      create-lockfiles nil
+      auto-save-default nil)
 (setq split-width-threshold 0)
 (setq split-height-threshold nil)
-(setq make-backup-files nil)
 (setq split-width-threshold 0)
 (setq split-height-threshold nil)
 (setq scroll-step 1)
