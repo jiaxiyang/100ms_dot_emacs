@@ -734,7 +734,7 @@
 (use-package origami
   :defer 1
   :config
-  (global-set-key (kbd "M-r") 'hydra-origami/body)
+  ;; (global-set-key (kbd "M-r") 'hydra-origami/body)
   (global-origami-mode t)
   (defhydra hydra-origami (:color red)
   "

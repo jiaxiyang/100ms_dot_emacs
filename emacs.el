@@ -322,13 +322,13 @@
 (setq your-own-path default-directory)
 (if (file-exists-p
      (concat your-own-path ".emacs.desktop"))
-    (if (y-or-n-p "Read .emacs.desktop and add hook?")
+    ;; (if (y-or-n-p "Read .emacs.desktop and add hook?")
     (progn
       (setq desktop-dirname your-own-path)
       (desktop-read your-own-path)
       (add-hook 'kill-emacs-hook
             `(lambda ()
-               (desktop-save ,your-own-path t))))))
+               (desktop-save ,your-own-path t)))))
 
 (defun my-desktop-save()
   "save desktop"
