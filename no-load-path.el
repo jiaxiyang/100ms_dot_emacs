@@ -130,6 +130,7 @@
   (defvar straight-use-symlinks)
   (setq straight-vc-git-default-clone-depth 1)
   (setq straight-use-symlinks nil)
+  (setq straight-repository-branch "develop")
   (setq use-package-verbose nil)
   (declare-function straight--build-file "")
   ;; bootstraping straight.el is relatively slow, ~200ms. so only do it at compile time
