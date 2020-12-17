@@ -262,6 +262,18 @@
   :config
   (add-to-list 'company-backends 'company-c-headers))
 
+;; c-eldoc for eglot cannot enable eldoc mode(no
+;; eldoc-documentation-function), or you can enable
+;; lsp-mode
+;; (use-package c-eldoc
+;;   :config
+;;   (add-hook 'c-mode-hook 'c-turn-on-eldoc-mode)
+;;   (add-hook 'c++-mode-hook 'c-turn-on-eldoc-mode))
+;; (use-package irony-mode
+;;   :config
+;;   (add-hook 'c++-mode-hook 'irony-mode)
+;;   (add-hook 'c-mode-hook 'irony-mode))
+
 ;; == eglot
 (use-package eglot
   :defines (eglot-mode-map eglot-server-programs
@@ -290,7 +302,7 @@
   :defines (lsp-keymap-prefix lsp-enable-symbol-highlighting lsp-ui-doc-enable)
   :commands (lsp lsp-deferred)
   :init (setq lsp-keymap-prefix "C-l")
-  :hook (((rust-mode)
+  :hook (((rust-mode c-mode c++-mode)
           . lsp-deferred)
          (lsp-mode . lsp-enable-which-key-integration))
   :config
