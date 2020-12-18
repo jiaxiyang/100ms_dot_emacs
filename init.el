@@ -313,6 +313,8 @@
 ;; == lsp-ui
 (use-package lsp-ui
   :commands lsp-ui-mode)
+  ;;:config
+  ;;(push "~/.emacs.d/straight/build/lsp-ui/" load-path))
 
 ;; == company-lsp
 (use-package company-lsp
