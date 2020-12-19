@@ -32,6 +32,15 @@
 (setq mouse-drag-copy-region t)
 (setq calendar-holidays nil)
 (setq inhibit-compacting-font-caches t)
+(setq auto-mode-alist
+      (cons '("\\.m$" . octave-mode) auto-mode-alist))
+(add-hook 'octave-mode-hook
+          (lambda ()
+            (abbrev-mode 1)
+            (auto-fill-mode 1)
+            (if (eq window-system 'x)
+                (font-lock-mode 1))))
+
 
 ;; mode config
 (save-place-mode 1)

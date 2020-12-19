@@ -1008,6 +1008,8 @@
   :mode ("\\.pdf\\'" . pdf-view-mode)
   :config
   (pdf-tools-install)
+  (define-key pdf-view-mode-map (kbd "j") #'pdf-view-next-line-or-next-page)
+  (define-key pdf-view-mode-map (kbd "k") #'pdf-view-previous-line-or-previous-page)
   (setq-default pdf-view-display-size 'fit-page)
   (setq pdf-annot-activate-created-annotations t))
 
