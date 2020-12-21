@@ -956,7 +956,9 @@
 ;; (use-package ibuffer-sidebar)
 
 ;; smooth-scrolling
-(use-package smooth-scrolling)
+(use-package smooth-scrolling
+  :config
+  (smooth-scrolling-mode 1))
 
 ;; yascroll
 (use-package yascroll
