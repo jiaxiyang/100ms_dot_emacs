@@ -1065,6 +1065,11 @@
 ;; persp-mode
 (use-package persp-mode)
 
+;; marginalia: minibuffer command complete
+(use-package marginalia
+  :init
+  (marginalia-mode 1))
+
 
 
 ;; END
