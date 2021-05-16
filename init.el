@@ -306,15 +306,17 @@
           . lsp-deferred)
          (lsp-mode . lsp-enable-which-key-integration))
   :config
+  (setq lsp-rust-analyzer-cargo-watch-command "clippy")
+  (setq lsp-rust-analyzer-server-display-inlay-hints t)
   (setq lsp-ui-doc-enable nil) ;; lsp关闭弹窗
-  ;;(setq lsp-ui-sideline-mode nil) ;; lsp 关闭右侧错误提示
+  (setq lsp-ui-sideline-mode nil) ;; lsp 关闭右侧错误提示
   (setq lsp-enable-symbol-highlighting nil)) ;; lsp 不高亮
 
 ;; == lsp-ui
 (use-package lsp-ui
   :commands lsp-ui-mode)
-  ;;:config
-  ;;(push "~/.emacs.d/straight/build/lsp-ui/" load-path))
+  ;; :init
+  ;; (push "~/.emacs.d/straight/build/lsp-ui/" load-path))
 
 ;; == company-lsp
 (use-package company-lsp
@@ -614,7 +616,8 @@
   (setq racer-rust-src-path
               (concat (string-trim
                        (shell-command-to-string "rustc --print sysroot"))
-                      "/lib/rustlib/src/rust/library"))
+                      "/lib/rustlib/src/rust/src"))
+                      ;; "/lib/rustlib/src/rust/library"))
   (setq company-tooltip-align-annotations t)
   (setq racer-loaded 1))
 
