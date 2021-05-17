@@ -307,7 +307,7 @@
          (lsp-mode . lsp-enable-which-key-integration))
   :config
   (setq lsp-rust-analyzer-cargo-watch-command "clippy")
-  ;; (setq lsp-rust-analyzer-server-display-inlay-hints t)
+  (setq lsp-rust-analyzer-server-display-inlay-hints t)
   (setq lsp-ui-doc-enable nil) ;; lsp关闭弹窗
   (setq lsp-ui-sideline-mode nil) ;; lsp 关闭右侧错误提示
   (setq lsp-enable-symbol-highlighting nil)) ;; lsp 不高亮
@@ -597,6 +597,7 @@
   :defines (rust-format-on-save)
   :functions (cargo-minor-mode company-indent-or-complete-common)
   :config
+  (global-yascroll-bar-mode -1)
   (setq rust-format-on-save t))
 
 ;; == cargo
