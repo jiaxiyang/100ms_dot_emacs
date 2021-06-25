@@ -1074,7 +1074,7 @@
   :config
   (global-hl-todo-mode 1))
 
-;; page-break-lines
+;; page-break-lines c-q c-l
 (use-package page-break-lines
   :init
   ;; (setq page-break-lines-char ?=)
