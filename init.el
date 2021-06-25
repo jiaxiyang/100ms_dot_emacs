@@ -199,6 +199,10 @@
   :config
   (setq magit-display-buffer-function #'magit-display-buffer-fullframe-status-v1))
 
+;; == forge  deal with PR
+(use-package forge
+  :after magit)
+
 ;; == compile
 (use-package compile
   :straight (compile :type built-in)
