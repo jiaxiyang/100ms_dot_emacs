@@ -1095,6 +1095,11 @@
   :init
   (marginalia-mode 1))
 
+;; beginend
+(use-package beginend
+  :config
+  (beginend-global-mode))
+
 
 
 ;; END
