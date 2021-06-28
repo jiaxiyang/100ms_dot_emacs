@@ -244,9 +244,9 @@
                ("C-p" . company-select-previous)))
   :config
   (setq company-idle-delay              0) ;;关闭自动提示
-  (setq company-minimum-prefix-length   3)
+  (setq company-minimum-prefix-length   4)
   (setq company-show-numbers            t)
-  (setq company-tooltip-limit           20)
+  (setq company-tooltip-limit           10)
   (setq company-dabbrev-downcase        nil)
   :bind (:map prog-mode-map
               ("C-r" . company-complete)))
@@ -653,7 +653,7 @@
   (global-set-key (kbd "M-k") 'sp-copy-sexp)
   (global-set-key (kbd "C-M-k") 'sp-backward-kill-sexp)
   (global-set-key (kbd "M-s") 'sp-kill-sexp)
-  (setq sp-autoinsert-pair nil)
+  ;; (setq sp-autoinsert-pair nil)
   (setq sp-highlight-pair-overlay nil)
   (smartparens-global-mode 1))
 
