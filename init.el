@@ -228,8 +228,7 @@
 
 ;; == company
 (use-package company
-  :after (:any prog-mode org-mode)
-  :diminish (company-mode . "C")
+  :defer 1
   :defines (
             company-active-map
             company-idle-delay
@@ -237,18 +236,17 @@
             company-show-numbers
             company-tooltip-limit
             company-dabbrev-downcase)
-  :hook (prog-mode . company-mode)
-  :hook (org-mode . company-mode)
   :bind (:map company-active-map
               (("C-n" . company-select-next)
                ("C-p" . company-select-previous)))
   :config
+  (global-company-mode 1)
   (setq company-idle-delay              nil) ;;关闭自动提示
   (setq company-minimum-prefix-length   4)
   (setq company-show-numbers            t)
   (setq company-tooltip-limit           10)
   (setq company-dabbrev-downcase        nil)
-  :bind (:map prog-mode-map
+  :bind (:map company-mode-map
               ("C-r" . company-complete)))
 
 ;; == company-irony
@@ -370,16 +368,14 @@
 
 ;; == yasnippet
 (use-package yasnippet
-  :after (prog-mode)
+  :defer 1
   :defines (yas-minor-mode-map yas-maybe-expand)
-  :hook (prog-mode . yas-minor-mode)
-  :hook (minibuffer-setup . yas-minor-mode)
   :config
   (global-set-key (kbd "M-'") 'company-yasnippet)
   ;; :bind (:map yas-minor-mode-map
   ;;             ("<tab>" . nil)
   ;;             ("TAB" . nil))
-  :config
+  (yas-global-mode 1)
   ;; very useful, complete snippet only when snippet available
   (define-key yas-minor-mode-map (kbd "M-?") yas-maybe-expand)
   (eval-after-load 'hippine-exp
