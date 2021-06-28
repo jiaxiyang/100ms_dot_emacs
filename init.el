@@ -1098,6 +1098,11 @@
   :config
   (beginend-global-mode))
 
+;; fancy-narrow
+(use-package fancy-narrow
+  :defer 1
+  (fancy-narrow-mode 1))
+
 
 
 ;; END
