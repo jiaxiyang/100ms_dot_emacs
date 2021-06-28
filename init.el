@@ -250,9 +250,6 @@
   (setq company-dabbrev-downcase        nil)
   :bind (:map prog-mode-map
               ("C-r" . company-complete)))
-  ;;:bind (:map org-mode-map
-  ;;            ("C-r" . company-complete)))
-
 
 ;; == company-irony
 (use-package company-irony
@@ -383,6 +380,7 @@
               ("<tab>" . nil)
               ("TAB" . nil))
   :config
+  ;; very useful, complete snippet only when snippet available
   (define-key yas-minor-mode-map (kbd "M-?") yas-maybe-expand)
   (eval-after-load 'hippine-exp
     '(progn
@@ -740,7 +738,7 @@
   :config
   (add-hook 'sh-mode-hook 'shfmt-on-save-mode))
 
-;; goto-chg
+;; goto-chg: go to last change
 (use-package goto-chg)
 
 ;; rainbow-delimiters
@@ -754,7 +752,7 @@
   (global-set-key (kbd "ESC <up>") 'move-text-up)
   (global-set-key (kbd "ESC <down>") 'move-text-down))
 
-;; figlet
+;; figlet: convert string to picture
 (use-package figlet)
 
 ;; origami
@@ -775,7 +773,7 @@
   ("f" origami-forward-toggle-node)
   ("a" origami-toggle-all-nodes)))
 
-;; whole-line-or-region
+;; whole-line-or-region: M-w to copy a line if not select
 (use-package whole-line-or-region
   :defer 1
   :config
@@ -804,7 +802,7 @@
 ;; hydra
 (use-package hydra)
 
-;; == leader-key-mode
+;; == awesome-tab-mode
 (use-package awesome-tab-mode
   :straight
   (awesome-tab-mode :type git
@@ -845,7 +843,7 @@
       ("RET" nil "quit"))
   (awesome-tab-mode t))
 
-;; ace-window
+;; ace-window: C-u M-o to change window
 (use-package ace-window
   :config
   (setq aw-keys '(?a ?s ?d ?f ?g ?h ?j ?k ?l))
@@ -865,7 +863,7 @@
   ;; (setq imenu-list-size 0.2)
   (global-set-key (kbd "C-^") #'imenu-list-smart-toggle))
 
-;; beacon
+;; beacon: highlight curson when jump
 (use-package beacon
   :defer 1
   :config
@@ -917,7 +915,7 @@
   :config
   (dired-recent-mode  1))
 
-;; keypression
+;; keypression: only for GUI
 (use-package keypression)
 
 ;; perspective
@@ -928,7 +926,7 @@
 ;; move-dum
 (use-package move-dup)
 
-;; crus
+;; crus: useful command sets
 (use-package crux
   :config
   (global-set-key (kbd "C-M-j") 'crux-smart-open-line)
@@ -948,7 +946,7 @@
   ("M-z" . avy-zap-to-char-dwim)
   ("C-M-z" . avy-zap-to-char-dwim))
 
-;; string-inflection
+;; string-inflection: upper,  capitalize word
 (use-package string-inflection
   :bind
   ("M-u" . string-inflection-python-style-cycle))
@@ -968,12 +966,12 @@
 ;; ibuffer-sidebar
 ;; (use-package ibuffer-sidebar)
 
-;; smooth-scrolling
+;; smooth-scrolling: cursor always in the middle of screen
 (use-package smooth-scrolling
   :config
   (smooth-scrolling-mode 1))
 
-;; yascroll
+;; yascroll: show scroll bar even in terminal
 (use-package yascroll
   :defer 1
   :config
@@ -986,7 +984,7 @@
   (command-log-mode 1)
   (global-command-log-mode 1))
 
-;; keycast
+;; keycast: show keypress at modeline
 (use-package keycast
   :config
   ;; keycast doesn't work well with doom-modeline
@@ -1005,7 +1003,7 @@
 ;; org-download
 (use-package org-download)
 
-;; grip-mode note: cp /usr/bin/grip to /usr/bin/grip.exe on windows10
+;; grip-mode: pdf view;  note: cp /usr/bin/grip to /usr/bin/grip.exe on windows10
 (use-package grip-mode)
 ;;  :config
 ;;  (setq grip-binary-path "grip")
@@ -1099,7 +1097,7 @@
   :init
   (marginalia-mode 1))
 
-;; beginend
+;; beginend: move to begin or end content
 (use-package beginend
   :config
   (beginend-global-mode))
