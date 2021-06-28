@@ -243,7 +243,7 @@
               (("C-n" . company-select-next)
                ("C-p" . company-select-previous)))
   :config
-  (setq company-idle-delay              0) ;;关闭自动提示
+  (setq company-idle-delay              nil) ;;关闭自动提示
   (setq company-minimum-prefix-length   4)
   (setq company-show-numbers            t)
   (setq company-tooltip-limit           10)
@@ -376,9 +376,9 @@
   :hook (minibuffer-setup . yas-minor-mode)
   :config
   (global-set-key (kbd "M-'") 'company-yasnippet)
-  :bind (:map yas-minor-mode-map
-              ("<tab>" . nil)
-              ("TAB" . nil))
+  ;; :bind (:map yas-minor-mode-map
+  ;;             ("<tab>" . nil)
+  ;;             ("TAB" . nil))
   :config
   ;; very useful, complete snippet only when snippet available
   (define-key yas-minor-mode-map (kbd "M-?") yas-maybe-expand)
@@ -615,7 +615,7 @@
   (add-hook 'rust-mode-hook #'racer-mode)
   (add-hook 'racer-mode-hook #'eldoc-mode)
   (add-hook 'racer-mode-hook #'company-mode)
-  (define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
+  ;; (define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
   (setq racer-rust-src-path
               (concat (string-trim
                        (shell-command-to-string "rustc --print sysroot"))
