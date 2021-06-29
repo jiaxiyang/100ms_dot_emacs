@@ -1101,6 +1101,7 @@
 ;; fancy-narrow
 (use-package fancy-narrow
   :defer 1
+  :config
   (fancy-narrow-mode 1))
 
 
