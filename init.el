@@ -695,32 +695,38 @@
   ;; :ensure t
   ;; :config (load-theme 'dracula t))
 
-;;google translate
-(use-package google-translate
-  :defines
-  (google-translate-base-url google-translate-listen-url
-                             google-translate--tkk-url
-                             google-translate-default-source-language
-                             google-translate-default-target-language)
-  :functions (google-translate-version)
-  :config
-  ;; (when (and (string-match "0.11.18"
-  ;;                          (google-translate-version))
-  ;;            (>= (time-to-seconds)
-  ;;                (time-to-seconds
-  ;;                 (encode-time 0 0 0 23 9 2018))))
-  ;;   (defun google-translate--get-b-d1 ()
-  ;;     ;; TKK='427110.1469889687'
-  ;;     (list 427110 1469889687)))
+;; ;;google translate
+;; (use-package google-translate
+;;   :defer 1
+;;   :defines
+;;   (google-translate-base-url google-translate-listen-url
+;;                              google-translate--tkk-url
+;;                              google-translate-default-source-language
+;;                              google-translate-default-target-language)
+;;   :functions (google-translate--search-tkk google-translate--get-b-d1)
+;;   :custom
+;;   (google-translate-backend-method 'curl)
+;;   :config
+;;   (require 'google-translate)
+;;   ;; (defun google-translate--get-b-d1 () (list 427110 1469889687))
+;;   (defun google-translate--search-tkk () "Search TKK." (list 430675 2721866130))
+;;   (setq google-translate-base-url
+;;         "http://translate.google.cn/translate_a/single")
+;;   (setq google-translate-listen-url
+;;         "http://translate.google.cn/translate_tts")
+;;   (setq google-translate--tkk-url
+;;         "http://translate.google.cn/")
+;;   (setq google-translate-default-source-language "en")
+;;   (setq google-translate-default-target-language "zh-CN"))
 
-  (setq google-translate-base-url
-        "http://translate.google.cn/translate_a/single")
-  (setq google-translate-listen-url
-        "http://translate.google.cn/translate_tts")
-  (setq google-translate--tkk-url
-        "http://translate.google.cn/")
-  (setq google-translate-default-source-language "en")
-  (setq google-translate-default-target-language "zh-CN"))
+;; go-translate
+(use-package go-translate
+  :config
+  (setq go-translate-token-current (cons 430675 2721866130))
+  (setq go-translate-base-url "https://translate.google.cn")
+  (setq go-translate-local-language "zh-CN")
+  (setq go-translate-buffer-follow-p t)
+  (setq go-translate-inputs-function #'go-translate-inputs-current-or-prompt))
 
 ;; themes
 (use-package zenburn-theme)
