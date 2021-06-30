@@ -728,6 +728,9 @@
   (setq go-translate-buffer-follow-p t)
   (setq go-translate-inputs-function #'go-translate-inputs-current-or-prompt))
 
+;; define-word
+(use-package define-word)
+
 ;; themes
 (use-package zenburn-theme)
 (use-package solarized-theme)
@@ -872,6 +875,12 @@
   (setq-default beacon-lighter "")
   (setq-default beacon-size 20)
   (beacon-mode 1))
+
+;; highlight-indentation
+(use-package highlight-indentation)
+
+;;  git-timemachine
+(use-package git-timemachine)
 
 ;; rainbow: show colors with color value; usefull in face config
 (use-package rainbow-mode
@@ -1110,6 +1119,8 @@
   :config
   (fancy-narrow-mode 1))
 
+;; json-mode
+(use-package json-mode)
 
 
 ;; END
